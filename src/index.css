@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Font Declarations */
+@font-face {
+  font-family: 'Symtext';
+  src: url('/Symtext.ttf') format('truetype'); 
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sk-Modernist';
+  src: url('/fonts/Sk-Modernist-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Sk-Modernist';
+  src: url('/fonts/Sk-Modernist-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 348 26% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 348 26% 18%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 348 26% 18%;
+    --primary: 348 26% 18%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 35 33% 93%;
+    --secondary-foreground: 348 26% 18%;
+    --muted: 35 33% 93%;
+    --muted-foreground: 348 10% 45%;
+    --accent: 348 26% 18%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 348 10% 85%;
+    --input: 348 10% 85%;
+    --ring: 348 26% 18%;
+    --radius: 0.5rem;
+
+    /* Brand Colors for Markaz Fiqih */
+    --brand-burgundy: 353 66% 40%;       /* #AB2130 Primary Background Red */
+    --brand-burgundy-light: 353 60% 48%; /* #C42838 Lighter Accent Red */
+    --brand-red: 353 66% 40%;            /* #AB2130 Primary Logo Red */
+    --brand-gold: 43 60% 50%;            /* #CC9933 Gold Takhassus Accent */
+    --brand-gold-light: 43 75% 62%;      /* #E5C158 Bright Gold */
+    --brand-cream: 40 30% 97%;           /* #FDFBF7 Light Clean Background */
+    --brand-sand: 35 25% 91%;            /* #FAF4EC Soft Warm White */
+    --brand-black: 351 50% 4%;           /* #0E0204 Deep Velvet Dark */
+
+    /* Typography */
+    /* !!! 2. UPDATE BAGIAN INI !!! */
+    /* Ubah dari Playfair Display jadi Symptext */
+    --font-display: 'Symptext', 'Playfair Display', serif; 
+    --font-body: 'Inter', sans-serif;
+
+    /* Animations */
+    --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 348 26% 18%;
+    --foreground: 0 0% 98%;
+
+    --card: 348 26% 22%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 348 26% 22%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    --primary-foreground: 348 26% 18%;
+
+    --secondary: 348 20% 25%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 348 20% 25%;
+    --muted-foreground: 348 10% 65%;
+
+    --accent: 348 20% 25%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 348 20% 30%;
+    --input: 348 20% 30%;
+    --ring: 0 0% 83.9%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .section-title {
+    @apply text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium;
+  }
+
+  .brand-gradient {
+    background: linear-gradient(135deg, hsl(var(--brand-burgundy)) 0%, hsl(var(--brand-burgundy-light)) 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--brand-burgundy)) 0%, hsl(var(--brand-burgundy-light)) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-in-left {
+    animation: slideInLeft 0.8s ease-out forwards;
+  }
+
+  .animate-slide-in-right {
+    animation: slideInRight 0.8s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInRight {
+    from {
+      opacity: 0;
+      transform: translateX(60px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes pulseSlow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+  .delay-500 { animation-delay: 0.5s; }
+}
