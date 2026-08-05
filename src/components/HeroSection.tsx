@@ -74,7 +74,11 @@ const HeroSection = () => {
             <img 
               src={brand.assets.dark} 
               alt={`Logo ${brand.name}.`} 
-              className="relative z-10 w-[240px] xs:w-[300px] sm:w-[420px] md:w-[520px] lg:w-[620px] max-h-[64vh] h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)] drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-500 ease-out"
+              className={`relative z-10 h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)] drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-500 ease-out ${
+                isHaramain
+                  ? "w-[205px] xs:w-[255px] sm:w-[350px] md:w-[430px] lg:w-[505px] max-h-[54vh]"
+                  : "w-[240px] xs:w-[300px] sm:w-[420px] md:w-[520px] lg:w-[620px] max-h-[64vh]"
+              }`}
             />
           </div>
         </div>
