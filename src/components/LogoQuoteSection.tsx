@@ -1,9 +1,11 @@
-import logoFixWhite from "@/assets/logo-markaz-fiqih-fix-white.png";
 import { Quote, Sparkles } from "lucide-react";
+import { useBrand } from "@/lib/brand";
 
 const LogoQuoteSection = () => {
+  const brand = useBrand();
+
   return (
-    <section className="min-h-screen bg-[#AB2130] py-16 md:py-24 px-6 md:px-12 lg:px-20 flex flex-col justify-between relative overflow-hidden font-modernist">
+    <section className="min-h-screen bg-brand-burgundy py-16 md:py-24 px-6 md:px-12 lg:px-20 flex flex-col justify-between relative overflow-hidden font-modernist">
       
       {/* --- SUBTLE BACKGROUND LIGHTING --- */}
       <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[700px] h-[700px] bg-brand-gold/15 rounded-full blur-[180px] pointer-events-none" />
@@ -40,9 +42,9 @@ const LogoQuoteSection = () => {
               
               {/* Freestanding Floating Emblem Image */}
               <img 
-                src={logoFixWhite} 
-                alt="Symbol Markaz Fiqih Emblem FIX" 
-                className="relative z-10 w-36 sm:w-60 md:w-72 lg:w-80 h-auto object-contain animate-float drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-500"
+                src={brand.assets.dark} 
+                alt={`Symbol ${brand.name} Emblem`} 
+                className="relative z-10 w-36 sm:w-60 md:w-72 lg:w-80 max-h-[360px] h-auto object-contain animate-float drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
@@ -52,13 +54,13 @@ const LogoQuoteSection = () => {
             <Quote className="w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 text-brand-gold-light/30" />
             
             <blockquote className="font-modernist font-bold text-lg sm:text-3xl md:text-4xl lg:text-[2.6rem] text-white leading-[1.4] sm:leading-[1.35] tracking-tight drop-shadow-md">
-              "Secara keseluruhan, identitas visual Markaz Fiqih membawa <span className="text-brand-gold-light font-extrabold underline decoration-brand-gold/40 underline-offset-4 sm:underline-offset-8">tiga pesan utama</span>: <span className="text-brand-gold-light">rumah</span> sebagai wadah pembelajaran, <span className="text-brand-gold-light">buku</span> sebagai simbol keluasan ilmu, dan <span className="text-brand-gold-light">titik pusat</span> sebagai lambang takhassus fiqih."
+              "{brand.manifesto}"
             </blockquote>
 
             <div className="flex items-center gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-white/15 w-max">
               <span className="w-8 sm:w-10 h-0.5 bg-brand-gold-light rounded-full" />
               <span className="text-brand-gold-light text-[10px] sm:text-xs md:text-sm font-modernist font-bold tracking-[0.2em] sm:tracking-[0.25em] uppercase">
-                Guideline Logo Markaz Fiqih
+                Guideline Logo {brand.name}
               </span>
             </div>
           </div>
@@ -69,7 +71,7 @@ const LogoQuoteSection = () => {
 
       {/* --- 3. FOOTER METADATA --- */}
       <div className="max-w-6xl mx-auto w-full relative z-10 border-t border-white/15 pt-5 flex justify-between items-center text-[10px] uppercase tracking-widest text-white/50 font-modernist">
-        <span>Markaz Fiqih Guidelines</span>
+        <span>{brand.name} Guidelines</span>
         <span className="text-brand-gold-light font-bold">Identity Manifesto</span>
       </div>
 

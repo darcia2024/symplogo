@@ -18,6 +18,7 @@ export default {
         body: ['Inter', 'sans-serif'],
         symtext: ['Symtext', 'sans-serif'], 
         modernist: ['Sk-Modernist', 'sans-serif'],
+        trajan: ['Trajan Pro 3', 'Trajan Pro', 'Cinzel', 'Georgia', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",

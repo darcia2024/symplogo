@@ -1,55 +1,80 @@
 import { useState } from "react";
 import { Copy, Check } from "lucide-react";
+import { useBrand } from "@/lib/brand";
 
 const ColorSystemSection = () => {
   const [copiedHex, setCopiedHex] = useState<string | null>(null);
+  const brand = useBrand();
 
-  const colors = [
-    {
-      number: "01",
-      type: "PRIMARY COLOR",
-      hex: "#AB2130",
-      rgb: "171, 33, 48",
-      name: "Merah Utama",
-      desc: "Warna utama wibawa keilmuan, logo utama, dan latar belakang visual.",
-      swatchClass: "bg-[#AB2130]",
-      borderClass: "border-[#AB2130]",
-      textClass: "text-[#AB2130]"
-    },
-    {
-      number: "02",
-      type: "ACCENT & CENTER",
-      hex: "#CC9933",
-      rgb: "204, 153, 51",
-      name: "Emas Takhassus Fiqih",
-      desc: "Aksen pusat takhassus fiqih, kemuliaan ilmu, dan highlight keilmuan.",
-      swatchClass: "bg-[#CC9933]",
-      borderClass: "border-[#CC9933]",
-      textClass: "text-[#CC9933]"
-    },
-    {
-      number: "03",
-      type: "NEUTRAL / BACKGROUND",
-      hex: "#FDFBF7",
-      rgb: "253, 251, 247",
-      name: "Putih Jernih",
-      desc: "Ruang visual bersih, jernih, dan keterbacaan yang nyaman.",
-      swatchClass: "bg-[#FDFBF7] border border-black/10",
-      borderClass: "border-black/10",
-      textClass: "text-brand-burgundy"
-    },
-    {
-      number: "04",
-      type: "DARK ACCENT",
-      hex: "#4A0E17",
-      rgb: "74, 14, 23",
-      name: "Merah Gelap",
-      desc: "Latar kontras tinggi, bayangan visual, dan aksen kedalaman.",
-      swatchClass: "bg-[#4A0E17]",
-      borderClass: "border-[#4A0E17]",
-      textClass: "text-[#4A0E17]"
-    }
-  ];
+  const colors = brand.slug === "haramaincapture"
+    ? [
+        {
+          number: "01",
+          type: "PRIMARY COLOR",
+          hex: "#9AD12A",
+          name: "Hijau Haramain",
+          desc: "Warna utama logo, aksen brand, dan penanda visual yang segar.",
+          swatchClass: "bg-[#9AD12A]",
+        },
+        {
+          number: "02",
+          type: "DARK CONTRAST",
+          hex: "#1F1F1F",
+          name: "Hitam Ikonik",
+          desc: "Kontras utama untuk logotype, elemen kamera, dan latar gelap.",
+          swatchClass: "bg-[#1F1F1F]",
+        },
+        {
+          number: "03",
+          type: "NEUTRAL / BACKGROUND",
+          hex: "#F9FCF4",
+          name: "Putih Bersih",
+          desc: "Ruang visual bersih untuk menjaga logo tetap tajam dan terbaca.",
+          swatchClass: "bg-[#F9FCF4] border border-black/10",
+        },
+        {
+          number: "04",
+          type: "SOFT ACCENT",
+          hex: "#EAF5D8",
+          name: "Hijau Lembut",
+          desc: "Aksen pendukung untuk panel, highlight, dan latar informatif.",
+          swatchClass: "bg-[#EAF5D8] border border-black/10",
+        },
+      ]
+    : [
+        {
+          number: "01",
+          type: "PRIMARY COLOR",
+          hex: "#AB2130",
+          name: "Merah Utama",
+          desc: "Warna utama wibawa keilmuan, logo utama, dan latar belakang visual.",
+          swatchClass: "bg-[#AB2130]",
+        },
+        {
+          number: "02",
+          type: "ACCENT & CENTER",
+          hex: "#CC9933",
+          name: "Emas Takhassus Fiqih",
+          desc: "Aksen pusat takhassus fiqih, kemuliaan ilmu, dan highlight keilmuan.",
+          swatchClass: "bg-[#CC9933]",
+        },
+        {
+          number: "03",
+          type: "NEUTRAL / BACKGROUND",
+          hex: "#FDFBF7",
+          name: "Putih Jernih",
+          desc: "Ruang visual bersih, jernih, dan keterbacaan yang nyaman.",
+          swatchClass: "bg-[#FDFBF7] border border-black/10",
+        },
+        {
+          number: "04",
+          type: "DARK ACCENT",
+          hex: "#4A0E17",
+          name: "Merah Gelap",
+          desc: "Latar kontras tinggi, bayangan visual, dan aksen kedalaman.",
+          swatchClass: "bg-[#4A0E17]",
+        },
+      ];
 
   const handleCopy = (hex: string) => {
     navigator.clipboard.writeText(hex);
@@ -60,7 +85,7 @@ const ColorSystemSection = () => {
   };
 
   return (
-    <section className="w-full bg-[#FAF6F0] py-16 md:py-24 px-4 sm:px-8 md:px-12 lg:px-20 font-modernist">
+    <section className="w-full bg-brand-sand py-16 md:py-24 px-4 sm:px-8 md:px-12 lg:px-20 font-modernist">
       
       {/* Top Header Tag */}
       <div className="max-w-7xl mx-auto flex justify-between items-center text-[10px] sm:text-xs font-modernist font-bold uppercase tracking-[0.25em] text-brand-burgundy/70 border-b border-black/10 pb-4 mb-10">

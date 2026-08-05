@@ -1,50 +1,88 @@
 import { useState } from "react";
-import { Home, BookOpen, Compass, Target, Bookmark, Sparkles, CheckCircle2 } from "lucide-react";
+import { Aperture, Camera, Compass, Home, Target, Bookmark, Sparkles, CheckCircle2 } from "lucide-react";
+import { useBrand } from "@/lib/brand";
 
 const PhilosophyMeaningSection = () => {
   const [activeTab, setActiveTab] = useState(0);
   const [isBookmarked, setIsBookmarked] = useState(false);
+  const brand = useBrand();
+  const isHaramain = brand.slug === "haramaincapture";
 
-  const pillars = [
-    {
-      id: 0,
-      icon: <Home className="w-5 h-5 text-brand-gold-light" />,
-      title: "Wadah Pembelajaran",
-      concept: "Rumah (Aman & Terstruktur)",
-      quote: "Rumah melambangkan Markaz Fiqih sebagai wadah yang aman, terstruktur, dan terbuka. Ruang intelektual dan spiritual tempat ilmu dipelajari, dijaga, dan diamalkan.",
-      tag: "Dimensi Wadah"
-    },
-    {
-      id: 1,
-      icon: <BookOpen className="w-5 h-5 text-brand-gold-light" />,
-      title: "Keluasan Ilmu",
-      concept: "Buku Terbuka (Perjalanan Ilmu)",
-      quote: "Bentuk buku terbuka merepresentasikan keluasan ilmu yang terus berkembang. Lengkungan halamannya menunjukkan pembelajaran bukan proses yang berhenti, melainkan perjalanan panjang.",
-      tag: "Dimensi Khazanah"
-    },
-    {
-      id: 2,
-      icon: <Compass className="w-5 h-5 text-brand-gold-light" />,
-      title: "Takhassus Fiqih",
-      concept: "Pusat Emas (Fokus Keahlian)",
-      quote: "Elemen emas di pusat melambangkan fokus utama keilmuan fiqih yang sistematis, mendalam, dan dapat dipertanggungjawabkan secara akademis maupun spiritual.",
-      tag: "Dimensi Keahlian"
-    },
-    {
-      id: 3,
-      icon: <Target className="w-5 h-5 text-brand-gold-light" />,
-      title: "Ketegasan Arah",
-      concept: "Fokus & Pendirian Keilmuan",
-      quote: "Identitas Markaz Fiqih mempertegas posisi lembaga yang memiliki fokus, ketegasan arah, dan pendirian yang jelas dalam pendidikan keilmuan Islam.",
-      tag: "Dimensi Karakter"
-    }
-  ];
+  const pillars = isHaramain
+    ? [
+        {
+          id: 0,
+          icon: <Home className="w-5 h-5 text-brand-gold-light" />,
+          title: "Gerbang Haramain",
+          concept: "Lengkung Kubah (Ruang Suci)",
+          quote: "Lengkung besar pada logo dibaca sebagai kubah dan gerbang. Bentuk ini memberi rasa masuk ke perjalanan umrah dan ziarah yang sakral, tenang, dan penuh penghormatan.",
+          tag: "Dimensi Tempat",
+        },
+        {
+          id: 1,
+          icon: <Aperture className="w-5 h-5 text-brand-gold-light" />,
+          title: "Lensa & Shutter",
+          concept: "Aperture Kamera (Fokus Visual)",
+          quote: "Bentuk aperture di pusat logo menjadi penanda utama kata Capture. Ia melambangkan kemampuan memilih sudut pandang, mengunci fokus, dan merawat momen ibadah jamaah agar tetap hidup sebagai kenangan.",
+          tag: "Dimensi Capture",
+        },
+        {
+          id: 2,
+          icon: <Camera className="w-5 h-5 text-brand-gold-light" />,
+          title: "Dokumentasi Umrah",
+          concept: "Kamera Dalam Arsitektur",
+          quote: "Kamera tidak berdiri sendiri, tetapi berada di dalam siluet masjid. Artinya dokumentasi Haramain Capture tetap tunduk pada adab tempat, suasana ibadah, dan nilai perjalanan umrah atau ziarah.",
+          tag: "Dimensi Adab",
+        },
+        {
+          id: 3,
+          icon: <Compass className="w-5 h-5 text-brand-gold-light" />,
+          title: "Hijau Perjalanan",
+          concept: "Aksen Hijau (Tenang & Bertumbuh)",
+          quote: "Warna hijau memberi kesan segar, damai, dan hidup. Pada konteks layanan dokumentasi umrah, hijau menjadi pengikat antara perjalanan spiritual, harapan, dan kenangan jamaah yang ingin dijaga.",
+          tag: "Dimensi Warna",
+        },
+      ]
+    : [
+        {
+          id: 0,
+          icon: <Home className="w-5 h-5 text-brand-gold-light" />,
+          title: "Wadah Pembelajaran",
+          concept: "Rumah (Aman & Terstruktur)",
+          quote: "Rumah melambangkan Markaz Fiqih sebagai wadah yang aman, terstruktur, dan terbuka. Ruang intelektual dan spiritual tempat ilmu dipelajari, dijaga, dan diamalkan.",
+          tag: "Dimensi Wadah",
+        },
+        {
+          id: 1,
+          icon: <Target className="w-5 h-5 text-brand-gold-light" />,
+          title: "Keluasan Ilmu",
+          concept: "Buku Terbuka (Perjalanan Ilmu)",
+          quote: "Bentuk buku terbuka merepresentasikan keluasan ilmu yang terus berkembang. Lengkungan halamannya menunjukkan pembelajaran bukan proses yang berhenti, melainkan perjalanan panjang.",
+          tag: "Dimensi Khazanah",
+        },
+        {
+          id: 2,
+          icon: <Compass className="w-5 h-5 text-brand-gold-light" />,
+          title: "Takhassus Fiqih",
+          concept: "Pusat Emas (Fokus Keahlian)",
+          quote: "Elemen emas di pusat melambangkan fokus utama keilmuan fiqih yang sistematis, mendalam, dan dapat dipertanggungjawabkan secara akademis maupun spiritual.",
+          tag: "Dimensi Keahlian",
+        },
+        {
+          id: 3,
+          icon: <Target className="w-5 h-5 text-brand-gold-light" />,
+          title: "Ketegasan Arah",
+          concept: "Fokus & Pendirian Keilmuan",
+          quote: "Identitas Markaz Fiqih mempertegas posisi lembaga yang memiliki fokus, ketegasan arah, dan pendirian yang jelas dalam pendidikan keilmuan Islam.",
+          tag: "Dimensi Karakter",
+        },
+      ];
 
   return (
-    <section className="relative min-h-screen w-full bg-[#AB2130] flex flex-col justify-between py-12 px-6 md:py-20 md:px-12 lg:px-20 overflow-hidden font-modernist">
+    <section className="relative min-h-screen w-full bg-brand-burgundy flex flex-col justify-between py-12 px-6 md:py-20 md:px-12 lg:px-20 overflow-hidden font-modernist">
       
       {/* Background Subtle Red Ambience */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#AB2130] via-[#AB2130] to-[#8C1B27] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-burgundy via-brand-burgundy to-brand-black pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-white/5 rounded-full blur-[150px] pointer-events-none" />
 
       {/* Grid Pattern Overlay */}
@@ -57,7 +95,7 @@ const PhilosophyMeaningSection = () => {
       <div className="w-full max-w-6xl mx-auto flex justify-between items-center z-20 text-[10px] md:text-xs text-white/80 font-modernist uppercase tracking-widest border-b border-white/15 pb-5">
         <div className="flex items-center gap-2.5">
             <span className="w-2 h-2 rounded-full bg-brand-gold-light animate-pulse"></span>
-            <span className="font-bold tracking-widest text-brand-gold-light">@MARKAZFIQIH</span>
+            <span className="font-bold tracking-widest text-brand-gold-light">{brand.handle}</span>
         </div>
         <div className="flex items-center gap-2">
             <Sparkles className="w-3.5 h-3.5 text-brand-gold-light" />
@@ -71,16 +109,18 @@ const PhilosophyMeaningSection = () => {
         
         {/* Subtle Background Ghost Text */}
         <h1 className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center font-modernist font-bold text-[12vw] md:text-[9vw] leading-none tracking-tight select-none pointer-events-none text-white/[0.03] uppercase">
-            TAKHASSUS
+            {isHaramain ? "CAPTURE" : "TAKHASSUS"}
         </h1>
 
         {/* Title Stack */}
         <div className="text-center relative z-10 max-w-3xl px-4 mb-8 md:mb-10">
             <h2 className="font-modernist font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight tracking-tight drop-shadow-xl">
-                Markaz <span className="text-brand-cream">Fiqih</span>
+                {isHaramain ? "Haramain" : "Markaz"} <span className="text-brand-cream">{isHaramain ? "Capture" : "Fiqih"}</span>
             </h2>
             <p className="text-white/80 font-modernist text-xs md:text-base mt-3 max-w-xl mx-auto leading-relaxed">
-                Rumah tempat bertumbuhnya ilmu yang terarah, mendalam, dan dekat dengan kehidupan.
+                {isHaramain
+                  ? "Menangkap perjalanan umrah, ziarah, dan ibadah lain melalui bahasa visual yang tenang, fokus, dan penuh penghormatan."
+                  : "Rumah tempat bertumbuhnya ilmu yang terarah, mendalam, dan dekat dengan kehidupan."}
             </p>
         </div>
 
@@ -98,7 +138,7 @@ const PhilosophyMeaningSection = () => {
                 >
                     <div className={`p-1.5 sm:p-2 rounded-lg sm:rounded-xl border flex-shrink-0 ${
                         activeTab === item.id 
-                            ? "bg-brand-gold text-[#AB2130] border-white/20" 
+                            ? "bg-brand-gold text-brand-burgundy border-white/20" 
                             : "bg-white/5 border-white/10 text-brand-gold-light"
                     }`}>
                         {item.icon}
@@ -143,7 +183,7 @@ const PhilosophyMeaningSection = () => {
                     className={`flex items-center justify-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-full font-modernist font-bold text-xs transition-all duration-300 w-full sm:w-auto ${
                         isBookmarked 
                             ? "bg-emerald-500 text-white shadow-lg border border-emerald-400" 
-                            : "bg-brand-gold text-[#AB2130] hover:bg-white hover:text-[#AB2130] shadow-lg"
+                            : "bg-brand-gold text-brand-burgundy hover:bg-white hover:text-brand-burgundy shadow-lg"
                     }`}
                 >
                     {isBookmarked ? (
@@ -159,7 +199,7 @@ const PhilosophyMeaningSection = () => {
                     )}
                 </button>
                 <span className="text-[9px] sm:text-[10px] text-white/60 font-modernist mt-1.5 sm:mt-2 tracking-wider hidden sm:block">
-                    Markaz Fiqih Identity Guidelines
+                    {brand.name} Identity Guidelines
                 </span>
             </div>
 

@@ -1,6 +1,5 @@
-import logoWhite from "@/assets/logo-horizontal-white.png";
-import logoRed from "@/assets/logo-horizontal-red.png";
 import { AlertTriangle, XCircle } from "lucide-react";
+import { useBrand } from "@/lib/brand";
 
 interface DontRule {
   id: string;
@@ -13,6 +12,7 @@ interface DontRule {
 }
 
 const IncorrectUsageSection = () => {
+  const brand = useBrand();
   const dontRules: DontRule[] = [
     {
       id: "01",
@@ -32,8 +32,8 @@ const IncorrectUsageSection = () => {
       id: "03",
       title: "Kontras Latar Buruk",
       desc: "Dilarang meletakkan logo pada latar tanpa kontras.",
-      bgStyle: "bg-[#5E121B]",
-      customLogoSrc: logoRed,
+      bgStyle: "bg-brand-burgundy",
+      customLogoSrc: brand.assets.horizontalColor,
       badgeText: "Kontras Rendah"
     },
     {
@@ -60,7 +60,7 @@ const IncorrectUsageSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen w-full bg-[#8C1B27] text-white py-16 md:py-24 px-4 sm:px-8 md:px-12 lg:px-20 overflow-hidden font-modernist">
+    <section className="relative min-h-screen w-full bg-brand-burgundy text-white py-16 md:py-24 px-4 sm:px-8 md:px-12 lg:px-20 overflow-hidden font-modernist">
       
       {/* Background Ambience */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-black/40 rounded-full blur-[160px] pointer-events-none" />
@@ -79,7 +79,7 @@ const IncorrectUsageSection = () => {
         </h2>
 
         <p className="text-white/80 font-modernist text-xs md:text-base max-w-2xl mx-auto leading-relaxed px-4">
-          Untuk menjaga integritas dan profesionalisme identitas visual Markaz Fiqih, berikut adalah contoh penerapan logo yang <span className="text-rose-300 font-bold underline underline-offset-4 decoration-rose-400">SALAH / DILARANG</span> untuk digunakan.
+          Untuk menjaga integritas dan profesionalisme identitas visual {brand.name}, berikut adalah contoh penerapan logo yang <span className="text-rose-300 font-bold underline underline-offset-4 decoration-rose-400">SALAH / DILARANG</span> untuk digunakan.
         </p>
       </div>
 
@@ -112,9 +112,9 @@ const IncorrectUsageSection = () => {
 
               {/* Improper Treated Logo */}
               <img 
-                src={rule.customLogoSrc || logoWhite} 
+                src={rule.customLogoSrc || brand.assets.horizontalWhite} 
                 alt={`Incorrect Usage Example ${rule.id}`}
-                className={`w-full max-w-[120px] sm:max-w-[200px] h-auto object-contain transition-all duration-500 ${rule.imageStyle || ""}`}
+                className={`w-full max-w-[120px] sm:max-w-[200px] max-h-[160px] h-auto object-contain transition-all duration-500 ${rule.imageStyle || ""}`}
               />
             </div>
 
@@ -134,7 +134,7 @@ const IncorrectUsageSection = () => {
 
       {/* --- 3. FOOTER METADATA TAG --- */}
       <div className="mt-16 md:mt-20 max-w-7xl mx-auto pt-6 border-t border-white/15 flex justify-between items-center text-[10px] font-modernist uppercase tracking-widest text-white/50">
-        <span>Markaz Fiqih Brand Integrity System</span>
+        <span>{brand.name} Brand Integrity System</span>
         <span className="text-brand-gold-light font-bold">09 / 10</span>
       </div>
 

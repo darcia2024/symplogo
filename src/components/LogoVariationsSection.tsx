@@ -1,10 +1,9 @@
-import logoWhite from "@/assets/logo-horizontal-white.png";
-import logoRed from "@/assets/logo-horizontal-red.png";
-import logoVerticalWhite from "@/assets/LogoVertikal.png";
-import logoIconWhite from "@/assets/logo-icon-white.png";
-import logoIconMono from "@/assets/logo-icon-mono.png";
+import { useBrand } from "@/lib/brand";
 
 const LogoVariationsSection = () => {
+  const brand = useBrand();
+  const isHaramain = brand.slug === "haramaincapture";
+
   return (
     <section className="relative min-h-screen w-full bg-brand-burgundy flex flex-col justify-between py-12 px-4 sm:px-8 md:px-12 lg:px-20 overflow-hidden font-modernist">
       
@@ -14,7 +13,7 @@ const LogoVariationsSection = () => {
       {/* --- HEADER --- */}
       <div className="w-full z-10">
         <div className="flex justify-between items-end text-[10px] md:text-xs tracking-[0.2em] text-primary-foreground/60 font-body uppercase mb-6">
-          <span>Markaz Fiqih Identity Guidelines</span>
+          <span>{brand.name} Identity Guidelines</span>
           <span className="hidden md:block">Logo Variations & Rules</span>
           <span>03</span>
         </div>
@@ -42,13 +41,13 @@ const LogoVariationsSection = () => {
                 <div className="relative flex-1 bg-black/25 backdrop-blur-md rounded-[1.5rem] sm:rounded-[2rem] border border-white/15 p-3.5 sm:p-8 flex flex-col items-center justify-between min-h-[200px] sm:min-h-[320px]">
                     <span className="text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-brand-gold-light font-body font-medium self-start truncate w-full">01. Utama (Gelap)</span>
                     <img 
-                        src={logoWhite} 
+                        src={brand.assets.horizontalWhite} 
                         alt="Logo Utama Latar Gelap" 
-                        className="w-full max-w-[120px] sm:max-w-[210px] h-auto object-contain drop-shadow-md my-3 sm:my-6 group-hover:scale-105 transition duration-300"
+                        className="w-full max-w-[120px] sm:max-w-[210px] max-h-[180px] h-auto object-contain drop-shadow-md my-3 sm:my-6 group-hover:scale-105 transition duration-300"
                     />
                     <div className="text-center">
                         <span className="text-xs sm:text-sm font-display text-primary-foreground block truncate">Horizontal White</span>
-                        <span className="text-[9px] sm:text-[11px] text-primary-foreground/60 font-body block truncate">Latar Merah / Gelap</span>
+                        <span className="text-[9px] sm:text-[11px] text-primary-foreground/60 font-body block truncate">{isHaramain ? "Latar Hijau / Gelap" : "Latar Merah / Gelap"}</span>
                     </div>
                 </div>
             </div>
@@ -59,12 +58,12 @@ const LogoVariationsSection = () => {
                 <div className="relative flex-1 bg-[#FDFBF7] backdrop-blur-md rounded-[1.5rem] sm:rounded-[2rem] border border-black/5 p-3.5 sm:p-8 flex flex-col items-center justify-between min-h-[200px] sm:min-h-[320px]">
                     <span className="text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-brand-red font-body font-medium self-start truncate w-full">02. Utama (Terang)</span>
                     <img 
-                        src={logoRed} 
+                        src={brand.assets.horizontalColor} 
                         alt="Logo Utama Latar Terang" 
-                        className="w-full max-w-[120px] sm:max-w-[210px] h-auto object-contain drop-shadow-md my-3 sm:my-6 group-hover:scale-105 transition duration-300"
+                        className="w-full max-w-[120px] sm:max-w-[210px] max-h-[180px] h-auto object-contain drop-shadow-md my-3 sm:my-6 group-hover:scale-105 transition duration-300"
                     />
                     <div className="text-center">
-                        <span className="text-xs sm:text-sm font-display text-brand-burgundy block truncate">Horizontal Red</span>
+                        <span className="text-xs sm:text-sm font-display text-brand-burgundy block truncate">{isHaramain ? "Horizontal Color" : "Horizontal Red"}</span>
                         <span className="text-[9px] sm:text-[11px] text-muted-foreground font-body block truncate">Latar Putih / Terang</span>
                     </div>
                 </div>
@@ -76,9 +75,9 @@ const LogoVariationsSection = () => {
                 <div className="relative flex-1 bg-black/25 backdrop-blur-md rounded-[1.5rem] sm:rounded-[2rem] border border-white/15 p-3.5 sm:p-8 flex flex-col items-center justify-between min-h-[200px] sm:min-h-[320px]">
                     <span className="text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-brand-gold-light font-body font-medium self-start truncate w-full">03. Vertikal</span>
                     <img 
-                        src={logoVerticalWhite} 
+                        src={brand.assets.vertical} 
                         alt="Logo Vertikal" 
-                        className="w-14 sm:w-28 h-auto object-contain drop-shadow-md my-2 sm:my-4 group-hover:scale-105 transition duration-300"
+                        className="w-14 sm:w-28 max-h-[180px] h-auto object-contain drop-shadow-md my-2 sm:my-4 group-hover:scale-105 transition duration-300"
                     />
                     <div className="text-center">
                         <span className="text-xs sm:text-sm font-display text-primary-foreground block truncate">Stacked Layout</span>
@@ -94,12 +93,12 @@ const LogoVariationsSection = () => {
                     <span className="text-[8px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-brand-gold-light font-body font-medium self-start truncate w-full">04. Simbol Mandiri</span>
                     <div className="flex gap-2 sm:gap-4 items-center justify-center my-2 sm:my-4">
                       <img 
-                          src={logoIconWhite} 
+                          src={brand.assets.iconWhite} 
                           alt="Icon Only White" 
                           className="w-10 sm:w-16 h-auto object-contain drop-shadow-md group-hover:scale-110 transition duration-300"
                       />
                       <img 
-                          src={logoIconMono} 
+                          src={brand.assets.iconMono} 
                           alt="Icon Mono" 
                           className="w-7 sm:w-12 h-auto object-contain opacity-50"
                       />
@@ -122,7 +121,7 @@ const LogoVariationsSection = () => {
               <div>
                 <h4 className="text-primary-foreground font-display text-xs sm:text-base md:text-lg">Aturan Ruang Aman (Clear Space)</h4>
                 <p className="text-primary-foreground/70 font-body text-[10px] sm:text-xs md:text-sm">
-                  Ruang aman minimal di sekeliling logo berpatokan pada ukuran <span className="text-brand-gold-light font-semibold">elemen emas</span> di pusat logo.
+                  Ruang aman minimal di sekeliling logo berpatokan pada ukuran <span className="text-brand-gold-light font-semibold">{isHaramain ? "elemen utama" : "elemen emas"}</span> di pusat logo.
                 </p>
               </div>
             </div>

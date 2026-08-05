@@ -1,32 +1,59 @@
-import { Home, BookOpen, Compass } from "lucide-react";
+import { Aperture, Camera, Compass, Home, MapPin } from "lucide-react";
+import { useBrand } from "@/lib/brand";
 
 const BrandOverviewSection = () => {
-  const pillars = [
-    {
-      title: "Rumah Ilmu",
-      sub: "Wadah Pembelajaran",
-      description: "Melambangkan wadah yang aman, terstruktur, dan terbuka. Ruang intelektual & spiritual tempat ilmu dipelajari, dijaga, dan diamalkan.",
-      icon: <Home className="w-4 h-4 sm:w-6 sm:h-6 text-brand-red" />,
-      colSpan: "col-span-1"
-    },
-    {
-      title: "Buku Terbuka",
-      sub: "Keluasan Ilmu",
-      description: "Merepresentasikan keluasan ilmu yang terus berkembang. Pembelajaran adalah perjalanan panjang yang selalu membaca & memahami.",
-      icon: <BookOpen className="w-4 h-4 sm:w-6 sm:h-6 text-brand-red" />,
-      colSpan: "col-span-1"
-    },
-    {
-      title: "Pusat Emas",
-      sub: "Takhassus Fiqih",
-      description: "Elemen emas di pusat melambangkan fokus utama dan kekhususan keilmuan fiqih yang sistematis, mendalam, dan terstruktur.",
-      icon: <Compass className="w-4 h-4 sm:w-6 sm:h-6 text-brand-gold" />,
-      colSpan: "col-span-2 lg:col-span-1"
-    }
-  ];
+  const brand = useBrand();
+  const isHaramain = brand.slug === "haramaincapture";
+  const pillars = isHaramain
+    ? [
+        {
+          title: "Gerbang Haramain",
+          sub: "Ruang Ibadah",
+          description: "Lengkung kubah dan gerbang merepresentasikan perjalanan jamaah menuju tanah suci, umrah, ziarah, dan momen ibadah yang penuh penghormatan.",
+          icon: <MapPin className="w-4 h-4 sm:w-6 sm:h-6 text-brand-red" />,
+          colSpan: "col-span-1",
+        },
+        {
+          title: "Lensa Capture",
+          sub: "Fokus Dokumentasi",
+          description: "Bentuk aperture kamera di pusat logo menegaskan layanan dokumentasi yang fokus menangkap momen jamaah secara rapi, jernih, dan bermakna.",
+          icon: <Aperture className="w-4 h-4 sm:w-6 sm:h-6 text-brand-red" />,
+          colSpan: "col-span-1",
+        },
+        {
+          title: "Adab Visual",
+          sub: "Khidmat & Profesional",
+          description: "Siluet masjid yang menaungi kamera menunjukkan bahwa dokumentasi tetap menjaga adab tempat, ketenangan ibadah, dan nilai spiritual perjalanan.",
+          icon: <Camera className="w-4 h-4 sm:w-6 sm:h-6 text-brand-gold" />,
+          colSpan: "col-span-2 lg:col-span-1",
+        },
+      ]
+    : [
+        {
+          title: "Rumah Ilmu",
+          sub: "Wadah Pembelajaran",
+          description: "Melambangkan wadah yang aman, terstruktur, dan terbuka. Ruang intelektual & spiritual tempat ilmu dipelajari, dijaga, dan diamalkan.",
+          icon: <Home className="w-4 h-4 sm:w-6 sm:h-6 text-brand-red" />,
+          colSpan: "col-span-1",
+        },
+        {
+          title: "Buku Terbuka",
+          sub: "Keluasan Ilmu",
+          description: "Merepresentasikan keluasan ilmu yang terus berkembang. Pembelajaran adalah perjalanan panjang yang selalu membaca & memahami.",
+          icon: <Compass className="w-4 h-4 sm:w-6 sm:h-6 text-brand-red" />,
+          colSpan: "col-span-1",
+        },
+        {
+          title: "Pusat Emas",
+          sub: "Takhassus Fiqih",
+          description: "Elemen emas di pusat melambangkan fokus utama dan kekhususan keilmuan fiqih yang sistematis, mendalam, dan terstruktur.",
+          icon: <Compass className="w-4 h-4 sm:w-6 sm:h-6 text-brand-gold" />,
+          colSpan: "col-span-2 lg:col-span-1",
+        },
+      ];
 
   return (
-    <section className="relative w-full bg-gradient-to-br from-[#FDFBF7] via-[#F8F4EC] to-[#FAF6F0] py-10 sm:py-16 md:py-20 px-4 sm:px-8 md:px-12 lg:px-20 overflow-hidden font-modernist">
+    <section className="relative w-full bg-gradient-to-br from-brand-cream via-brand-sand to-brand-cream py-10 sm:py-16 md:py-20 px-4 sm:px-8 md:px-12 lg:px-20 overflow-hidden font-modernist">
       
       {/* Ambient Background Elements */}
       <div className="absolute top-0 -left-1/4 w-[600px] h-[600px] bg-red-100/40 rounded-full blur-[120px] pointer-events-none -z-10" />
@@ -44,7 +71,9 @@ const BrandOverviewSection = () => {
             Pilar Utama Logo
           </h2>
           <p className="text-muted-foreground font-modernist text-xs md:text-sm max-w-md mt-2 md:mt-0 leading-relaxed px-2 sm:px-0">
-            Identitas visual Markaz Fiqih menyatukan tiga simbol utama menjadi satu kesatuan visual yang sederhana, modern, dan bermakna.
+            {isHaramain
+              ? "Identitas visual Haramain Capture menyatukan simbol perjalanan ibadah, arsitektur tanah suci, dan bahasa kamera dalam satu tanda yang khidmat dan profesional."
+              : "Identitas visual Markaz Fiqih menyatukan tiga simbol utama menjadi satu kesatuan visual yang sederhana, modern, dan bermakna."}
           </p>
         </div>
 

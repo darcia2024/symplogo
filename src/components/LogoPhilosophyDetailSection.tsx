@@ -7,6 +7,12 @@ import mockupTotebag from "@/assets/mockup-totebag.png";
 import mockupPembatas from "@/assets/mockup-pembatas-buku.png";
 import mockupNotebook from "@/assets/mockup-notebook.png";
 import mockupBanner from "@/assets/mockup-banner.png";
+import haramainFull from "@/assets/haramain-full.png";
+import haramainCapture1 from "@/assets/haramain-capture-1.png";
+import haramainLanyard from "@/assets/haramain-lanyard.png";
+import haramainTopi from "@/assets/haramain-topi.png";
+import haramainVest from "@/assets/haramain-vest.png";
+import { useBrand } from "@/lib/brand";
 
 interface GalleryItem {
   id: string;
@@ -20,6 +26,8 @@ interface GalleryItem {
 }
 
 const BrandGallerySection = () => {
+  const brand = useBrand();
+  const isHaramain = brand.slug === "haramaincapture";
   const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
   const [isLiked, setIsLiked] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
@@ -31,7 +39,7 @@ const BrandGallerySection = () => {
     title: "Kaos Official & Apparel Markaz Fiqih",
     sub: "MERCHANDISE & APPAREL",
     desc: "Penerapan logo Markaz Fiqih pada kaos katun combed premium dengan cetak sablon presisi warna emas & putih pada bagian dada. Didesain untuk kenyamanan civitas akademika dan alumni.",
-    specs: "Cotton Combed 30s • Plastisol HD Gold Ink • Unisex Fit",
+    specs: "Cotton Combed 30s â€¢ Plastisol HD Gold Ink â€¢ Unisex Fit",
     hashtags: "#MarkazFiqih #ApparelResmi #IdentitasKeilmuan #MerchandiseOfficial",
     likes: 1482
   };
@@ -43,7 +51,7 @@ const BrandGallerySection = () => {
       title: "Banner & Signage Branding Visual",
       sub: "OUTDOOR & DIGITAL VISUAL",
       desc: "Desain banner dan papan identitas resmi untuk kebutuhan publikasi kegiatan, backdrop seminar keilmuan, dan media visual outdoor Markaz Fiqih.",
-      specs: "Flexi High-Res Print • Weatherproof • Official Proportion",
+      specs: "Flexi High-Res Print â€¢ Weatherproof â€¢ Official Proportion",
       hashtags: "#MarkazFiqih #BannerResmi #MediaVisual #IdentitasLembaga",
       likes: 1240
     },
@@ -53,7 +61,7 @@ const BrandGallerySection = () => {
       title: "Totebag & Seminar Kit Keilmuan",
       sub: "MEDIA EVENT & PELATIHAN",
       desc: "Desain tas kanvas ramah lingkungan untuk kebutuhan merchandise kegiatan, souvenir pelatihan, dan tempat perlengkapan peserta majlis keilmuan.",
-      specs: "Heavy Canvas 12oz • Precision Screen Print • Reinforced Strap",
+      specs: "Heavy Canvas 12oz â€¢ Precision Screen Print â€¢ Reinforced Strap",
       hashtags: "#MarkazFiqih #TotebagKeilmuan #SeminarKit #MajlisIlmu",
       likes: 1395
     },
@@ -63,7 +71,7 @@ const BrandGallerySection = () => {
       title: "Notebook Journal Takhassus Fiqih",
       sub: "STATIONERY & CATATAN",
       desc: "Buku catatan hardcover eksklusif dengan pita pembatas dan finishing embos emas untuk penulisan faedah keilmuan dan catatan pembelajaran.",
-      specs: "Hardcover Bookbinding • Foil Gold Emboss • Book Paper 80gsm",
+      specs: "Hardcover Bookbinding â€¢ Foil Gold Emboss â€¢ Book Paper 80gsm",
       hashtags: "#MarkazFiqih #JournalTakhassus #CatatanIlmu #FiqihJournal",
       likes: 1650
     },
@@ -73,13 +81,69 @@ const BrandGallerySection = () => {
       title: "Pembatas Buku Keilmuan Eksklusif",
       sub: "PUBLIKASI & LITERASI",
       desc: "Pembatas buku eksklusif bertema keilmuan dengan aksen warna merah & emas khas Markaz Fiqih serta rumbai sutra penyemat mushaf/kitab.",
-      specs: "Art Card 310gsm • Matte Lamination • Gold Foil Accent",
+      specs: "Art Card 310gsm â€¢ Matte Lamination â€¢ Gold Foil Accent",
       hashtags: "#MarkazFiqih #PembatasBuku #LiterasiIslam #KitabFiqih",
       likes: 1820
     },
   ];
 
-  const allGalleryItems: GalleryItem[] = [kaosItem, ...otherItems];
+  const haramainKaosItem: GalleryItem = {
+    id: "01",
+    image: haramainFull,
+    title: "Full Identity Mockup Haramain Capture",
+    sub: "BRAND IMPLEMENTATION",
+    desc: "Penerapan identitas Haramain Capture secara menyeluruh untuk menunjukkan konsistensi logo, warna, dan karakter visual pada kebutuhan dokumentasi perjalanan ibadah.",
+    specs: "Full Mockup • Brand System • Umrah Documentation",
+    hashtags: "#HaramainCapture #DokumentasiUmrah #JamaahJourney #VisualIbadah",
+    likes: 1482,
+  };
+
+  const haramainOtherItems: GalleryItem[] = [
+    {
+      id: "02",
+      image: haramainVest,
+      title: "Vest Tim Dokumentasi",
+      sub: "FIELD CREW UNIFORM",
+      desc: "Vest operasional untuk tim dokumentasi agar mudah dikenali jamaah saat bertugas di titik kumpul, perjalanan, dan area layanan travel.",
+      specs: "Crew Vest • Field Ready • Clear Identity",
+      hashtags: "#HaramainCapture #UmrahDocumentation #TravelPartner #ServiceMedia",
+      likes: 1240,
+    },
+    {
+      id: "03",
+      image: haramainLanyard,
+      title: "Lanyard Haramain Capture",
+      sub: "CREW ACCESSORIES",
+      desc: "Lanyard sebagai identitas petugas dokumentasi, memudahkan koordinasi dengan jamaah dan travel partner selama rangkaian ibadah.",
+      specs: "Lanyard • Crew Badge • Service Identity",
+      hashtags: "#HaramainCapture #PilgrimKit #UmrahJourney #TravelKit",
+      likes: 1395,
+    },
+    {
+      id: "04",
+      image: haramainTopi,
+      title: "Topi Haramain Capture",
+      sub: "OUTDOOR CREW ITEM",
+      desc: "Topi brand untuk kebutuhan lapangan, menjaga tampilan tim tetap seragam, rapi, dan profesional saat mendampingi jamaah.",
+      specs: "Cap • Outdoor Crew • Brand Visibility",
+      hashtags: "#HaramainCapture #JourneyNotes #UmrahStory #SacredMemory",
+      likes: 1650,
+    },
+    {
+      id: "05",
+      image: haramainCapture1,
+      title: "Primary Logo Application",
+      sub: "VISUAL MASTER",
+      desc: "Aplikasi logo utama Haramain Capture sebagai acuan visual untuk kebutuhan digital, cetak, dan materi promosi layanan dokumentasi ibadah.",
+      specs: "Logo Application • Visual Master • Brand Asset",
+      hashtags: "#HaramainCapture #DoaZiarah #UmrahGuide #IbadahTravel",
+      likes: 1820,
+    },
+  ];
+
+  const featuredItem = isHaramain ? haramainKaosItem : kaosItem;
+  const galleryItems = isHaramain ? haramainOtherItems : otherItems;
+  const allGalleryItems: GalleryItem[] = [featuredItem, ...galleryItems];
 
   // Preload all images for zero-delay instant modal loading
   useEffect(() => {
@@ -129,11 +193,12 @@ const BrandGallerySection = () => {
   }, [activeModalIndex]);
 
   return (
-    <section className="relative min-h-screen w-full bg-[#AB2130] text-primary-foreground py-16 px-6 md:py-24 md:px-12 lg:px-20 overflow-hidden font-modernist">
+    <section className="relative min-h-screen w-full bg-brand-burgundy text-primary-foreground py-16 px-6 md:py-24 md:px-12 lg:px-20 overflow-hidden font-modernist">
 
       {/* --- BACKGROUND AMBIENCE --- */}
       <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-brand-gold/15 rounded-full blur-[160px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-black/20 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-burgundy via-brand-burgundy to-brand-black pointer-events-none" />
       
       {/* Pattern Grid */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{
@@ -148,7 +213,9 @@ const BrandGallerySection = () => {
         </h2>
         
         <p className="text-white/80 font-modernist text-xs md:text-base max-w-2xl mx-auto leading-relaxed px-4">
-            Eksplorasi penerapan identitas visual Markaz Fiqih pada berbagai media merch apparel, totebag, jurnal keilmuan, pembatas buku, dan banner branding.
+            {isHaramain
+              ? "Eksplorasi penerapan identitas visual Haramain Capture pada media dokumentasi perjalanan umrah, ziarah, publikasi digital, dan materi layanan jamaah."
+              : "Eksplorasi penerapan identitas visual Markaz Fiqih pada berbagai media merch apparel, totebag, jurnal keilmuan, pembatas buku, dan banner branding."}
         </p>
       </div>
 
@@ -162,8 +229,8 @@ const BrandGallerySection = () => {
         >
           {/* FULL-FIT KAOS IMAGE */}
           <img 
-            src={kaosItem.image} 
-            alt={kaosItem.title}
+            src={featuredItem.image} 
+            alt={featuredItem.title}
             className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-95 group-hover:brightness-100"
           />
           
@@ -188,21 +255,21 @@ const BrandGallerySection = () => {
             <div className="flex items-center gap-2 mb-2">
               <Tag className="w-3.5 h-3.5 text-brand-gold-light" />
               <span className="text-[10px] uppercase tracking-widest text-brand-gold-light font-modernist font-bold">
-                {kaosItem.sub}
+                {featuredItem.sub}
               </span>
             </div>
             <h3 className="text-2xl md:text-3xl lg:text-4xl font-modernist font-bold text-white group-hover:text-brand-gold-light transition-colors drop-shadow-md">
-              {kaosItem.title}
+              {featuredItem.title}
             </h3>
             <p className="text-white/80 text-xs md:text-sm font-modernist leading-relaxed mt-2.5 drop-shadow">
-              {kaosItem.desc}
+              {featuredItem.desc}
             </p>
           </div>
         </div>
 
         {/* RIGHT COLUMN: 2x2 GRID OF REMAINING 4 ITEMS */}
         <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-          {otherItems.map((item, idx) => (
+          {galleryItems.map((item, idx) => (
             <div
               key={item.id}
               onClick={() => setActiveModalIndex(idx + 1)}
@@ -253,7 +320,7 @@ const BrandGallerySection = () => {
 
       {/* --- FOOTER METADATA TAG --- */}
       <div className="mt-16 md:mt-20 flex justify-between items-center text-[9px] md:text-[10px] uppercase tracking-widest text-white/60 border-t border-white/15 pt-6 md:pt-8 max-w-7xl mx-auto font-modernist">
-        <span className="font-bold">Markaz Fiqih Brand Application System</span>
+        <span className="font-bold">{brand.name} Brand Application System</span>
         <span className="font-bold text-brand-gold-light">10 / 10</span>
       </div>
 
@@ -265,7 +332,7 @@ const BrandGallerySection = () => {
         >
           {/* Main Dual-Column Instagram Lightbox Box */}
           <div 
-            className="relative w-full max-w-5xl bg-[#120306] rounded-3xl border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.95)] overflow-hidden font-modernist text-white grid grid-cols-1 lg:grid-cols-12 min-h-[500px] max-h-[90vh]"
+            className="relative w-full max-w-5xl bg-brand-black rounded-3xl border border-white/15 shadow-[0_25px_80px_rgba(0,0,0,0.95)] overflow-hidden font-modernist text-white grid grid-cols-1 lg:grid-cols-12 min-h-[500px] max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button Top Right for Mobile */}
@@ -324,13 +391,13 @@ const BrandGallerySection = () => {
               {/* 1. Header Bar */}
               <div className="p-4 border-b border-white/10 flex items-center justify-between bg-black/20">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full overflow-hidden border border-brand-gold/40 flex-shrink-0 bg-[#AB2130] p-0.5 shadow-md">
-                    <img src={profileAvatar} alt="Kelas Markaz Fiqih" className="w-full h-full object-cover rounded-full" />
+                  <div className="w-10 h-10 rounded-full overflow-hidden border border-brand-gold/40 flex-shrink-0 bg-brand-burgundy p-0.5 shadow-md">
+                    <img src={isHaramain ? brand.assets.iconWhite : profileAvatar} alt={`${brand.name} profile`} className="w-full h-full object-cover rounded-full" />
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5">
-                      <span className="font-modernist font-bold text-sm text-white">markazfiqih</span>
-                      <span className="w-3.5 h-3.5 rounded-full bg-brand-gold-light text-[#AB2130] text-[9px] font-bold flex items-center justify-center">✓</span>
+                      <span className="font-modernist font-bold text-sm text-white">{brand.handle.replace("@", "")}</span>
+                      <span className="w-3.5 h-3.5 rounded-full bg-brand-gold-light text-brand-burgundy text-[9px] font-bold flex items-center justify-center">âœ“</span>
                     </div>
                     <span className="text-[10px] text-white/50 font-modernist uppercase tracking-wider block">
                       {currentModalItem.sub}
@@ -373,7 +440,7 @@ const BrandGallerySection = () => {
                 <div className="flex gap-2 items-center flex-wrap">
                   <span className="text-[10px] font-bold text-white/50 uppercase tracking-widest mr-1">WARNA:</span>
                   <span className="px-2.5 py-1 rounded-lg bg-black/40 border border-white/15 text-[11px] font-bold flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#AB2130]"></span> Merah #AB2130
+                    <span className="w-2.5 h-2.5 rounded-full bg-brand-red"></span> {isHaramain ? "Hijau #9AD12A" : "Merah #AB2130"}
                   </span>
                   <span className="px-2.5 py-1 rounded-lg bg-black/40 border border-white/15 text-[11px] font-bold flex items-center gap-1.5">
                     <span className="w-2.5 h-2.5 rounded-full bg-[#CC9933]"></span> Emas #CC9933
@@ -395,7 +462,7 @@ const BrandGallerySection = () => {
                       onClick={() => setIsLiked(!isLiked)}
                       className="transition-transform active:scale-125"
                     >
-                      <Heart className={`w-6 h-6 transition-colors ${isLiked ? "fill-[#AB2130] text-[#AB2130]" : "text-white hover:text-white/70"}`} />
+                      <Heart className={`w-6 h-6 transition-colors ${isLiked ? "fill-brand-red text-brand-red" : "text-white hover:text-white/70"}`} />
                     </button>
                     <button className="text-white hover:text-white/70 transition-colors">
                       <MessageCircle className="w-6 h-6" />
@@ -423,7 +490,7 @@ const BrandGallerySection = () => {
                     {(currentModalItem.likes + (isLiked ? 1 : 0)).toLocaleString("id-ID")} menyukai ini
                   </span>
                   <span className="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5 font-bold">
-                    MARKAZ FIQIH • OFFICIAL BRAND GUIDELINE 2026
+                    MARKAZ FIQIH â€¢ OFFICIAL BRAND GUIDELINE 2026
                   </span>
                 </div>
               </div>

@@ -1,4 +1,5 @@
-import { BookOpenCheck, Target, Sparkles, Feather, CheckCircle } from "lucide-react";
+import { BookOpenCheck, Camera, HeartHandshake, Sparkles, Feather, CheckCircle, Target } from "lucide-react";
+import { useBrand } from "@/lib/brand";
 
 interface VoicePillar {
   id: string;
@@ -11,47 +12,88 @@ interface VoicePillar {
 }
 
 const ToneOfVoiceSection = () => {
-  const pillars: VoicePillar[] = [
-    {
-      id: "01",
-      title: "Ilmiah & Autentik",
-      subtitle: "SCIENTIFIC & AUTHENTIC",
-      desc: "Setiap gagasan dan narasi dibangun di atas rujukan keilmuan Islam (turats) yang mu'tabar, objektif, dan dapat dipertanggungjawabkan.",
-      doText: "Gunakan istilah fiqih baku, cantumkan landasan rujukan yang akurat.",
-      dontText: "Hindari klaim tanpa dasar ilmu atau spekulasi tanpa marja' shahih.",
-      icon: <BookOpenCheck className="w-6 h-6 text-brand-gold-light" />
-    },
-    {
-      id: "02",
-      title: "Takhassus & Fokus",
-      subtitle: "SPECIALIZED & PRECISE",
-      desc: "Menekankan spesialisasi dan kedalaman pembahasan fiqih secara fokus, terarah, dan mendalam sesuai disiplin ilmu.",
-      doText: "Fokus pada ruang lingkup fiqih, metodologi hukum Islam, dan kaidah syar'i.",
-      dontText: "Hindari melebar ke isu sensasional non-keilmuan yang mengaburkan fokus.",
-      icon: <Target className="w-6 h-6 text-brand-gold-light" />
-    },
-    {
-      id: "03",
-      title: "Terstruktur & Lugas",
-      subtitle: "STRUCTURED & CLEAR",
-      desc: "Penyampaian bahasa yang rapi, tertata sistematis, dan lugas sehingga mudah dipahami oleh civitas akademika maupun masyarakat umum.",
-      doText: "Gunakan poin teratur, kalimat efektif, dan hirarki pembahasan yang jelas.",
-      dontText: "Hindari kalimat berbelit-belit atau bahasa asing tanpa padanan yang pas.",
-      icon: <Sparkles className="w-6 h-6 text-brand-gold-light" />
-    },
-    {
-      id: "04",
-      title: "Hikmah & Santun",
-      subtitle: "WISDOM & RESPECTFUL",
-      desc: "Menjaga etika keilmuan, kerendahan hati akademis, serta kerukunan dalam menyikapi keragaman pendapat ulama.",
-      doText: "Gunakan bahasa yang sejuk, menghormati silang pendapat (khilafiyah) secara beradab.",
-      dontText: "Hindari bahasa provokatif, vonis sepihak, atau nada menghakimi.",
-      icon: <Feather className="w-6 h-6 text-brand-gold-light" />
-    }
-  ];
+  const brand = useBrand();
+  const isHaramain = brand.slug === "haramaincapture";
+  const pillars: VoicePillar[] = isHaramain
+    ? [
+        {
+          id: "01",
+          title: "Khidmat & Tenang",
+          subtitle: "REVERENT & CALM",
+          desc: "Bahasa visual dan verbal menjaga suasana ibadah: lembut, tertata, dan tidak mengganggu kekhusyukan jamaah.",
+          doText: "Gunakan narasi yang menenangkan, menghormati jamaah, dan menempatkan ibadah sebagai pusat cerita.",
+          dontText: "Hindari gaya promosi yang terlalu ramai, berlebihan, atau mengurangi kekhidmatan momen.",
+          icon: <HeartHandshake className="w-6 h-6 text-brand-gold-light" />,
+        },
+        {
+          id: "02",
+          title: "Fokus Momen",
+          subtitle: "FOCUSED CAPTURE",
+          desc: "Komunikasi menekankan kemampuan menangkap momen penting perjalanan umrah, ziarah, dan ibadah lain secara jernih.",
+          doText: "Sorot momen jamaah, keluarga, doa, perjalanan, dan suasana tanah suci secara proporsional.",
+          dontText: "Hindari angle yang terlalu personal tanpa izin atau narasi yang terasa mengeksploitasi emosi.",
+          icon: <Camera className="w-6 h-6 text-brand-gold-light" />,
+        },
+        {
+          id: "03",
+          title: "Rapi & Profesional",
+          subtitle: "CLEAR & RELIABLE",
+          desc: "Penyampaian layanan harus jelas, mudah dipahami, dan memberi rasa percaya pada jamaah maupun travel partner.",
+          doText: "Gunakan informasi paket, alur dokumentasi, output foto/video, dan jadwal dengan ringkas.",
+          dontText: "Hindari klaim teknis yang tidak jelas atau janji hasil yang tidak bisa dipenuhi.",
+          icon: <Sparkles className="w-6 h-6 text-brand-gold-light" />,
+        },
+        {
+          id: "04",
+          title: "Adab Visual",
+          subtitle: "RESPECTFUL VISUAL",
+          desc: "Dokumentasi tetap tunduk pada batas adab tempat, privasi jamaah, dan nilai spiritual perjalanan.",
+          doText: "Gunakan bahasa yang sopan, menjaga privasi, dan menghormati aturan area ibadah.",
+          dontText: "Hindari visual atau caption yang melanggar adab, terlalu sensasional, atau mengganggu jamaah lain.",
+          icon: <Feather className="w-6 h-6 text-brand-gold-light" />,
+        },
+      ]
+    : [
+        {
+          id: "01",
+          title: "Ilmiah & Autentik",
+          subtitle: "SCIENTIFIC & AUTHENTIC",
+          desc: "Setiap gagasan dan narasi dibangun di atas rujukan keilmuan Islam (turats) yang mu'tabar, objektif, dan dapat dipertanggungjawabkan.",
+          doText: "Gunakan istilah fiqih baku, cantumkan landasan rujukan yang akurat.",
+          dontText: "Hindari klaim tanpa dasar ilmu atau spekulasi tanpa marja' shahih.",
+          icon: <BookOpenCheck className="w-6 h-6 text-brand-gold-light" />,
+        },
+        {
+          id: "02",
+          title: "Takhassus & Fokus",
+          subtitle: "SPECIALIZED & PRECISE",
+          desc: "Menekankan spesialisasi dan kedalaman pembahasan fiqih secara fokus, terarah, dan mendalam sesuai disiplin ilmu.",
+          doText: "Fokus pada ruang lingkup fiqih, metodologi hukum Islam, dan kaidah syar'i.",
+          dontText: "Hindari melebar ke isu sensasional non-keilmuan yang mengaburkan fokus.",
+          icon: <Target className="w-6 h-6 text-brand-gold-light" />,
+        },
+        {
+          id: "03",
+          title: "Terstruktur & Lugas",
+          subtitle: "STRUCTURED & CLEAR",
+          desc: "Penyampaian bahasa yang rapi, tertata sistematis, dan lugas sehingga mudah dipahami oleh civitas akademika maupun masyarakat umum.",
+          doText: "Gunakan poin teratur, kalimat efektif, dan hirarki pembahasan yang jelas.",
+          dontText: "Hindari kalimat berbelit-belit atau bahasa asing tanpa padanan yang pas.",
+          icon: <Sparkles className="w-6 h-6 text-brand-gold-light" />,
+        },
+        {
+          id: "04",
+          title: "Hikmah & Santun",
+          subtitle: "WISDOM & RESPECTFUL",
+          desc: "Menjaga etika keilmuan, kerendahan hati akademis, serta kerukunan dalam menyikapi keragaman pendapat ulama.",
+          doText: "Gunakan bahasa yang sejuk, menghormati silang pendapat (khilafiyah) secara beradab.",
+          dontText: "Hindari bahasa provokatif, vonis sepihak, atau nada menghakimi.",
+          icon: <Feather className="w-6 h-6 text-brand-gold-light" />,
+        },
+      ];
 
   return (
-    <section className="relative min-h-screen w-full bg-[#FDFBF7] text-brand-burgundy py-16 md:py-24 px-6 md:px-12 lg:px-20 overflow-hidden font-modernist">
+    <section className="relative min-h-screen w-full bg-brand-cream text-brand-burgundy py-16 md:py-24 px-6 md:px-12 lg:px-20 overflow-hidden font-modernist">
       
       {/* Background Ambience */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-amber-100/40 rounded-full blur-[160px] pointer-events-none" />
@@ -71,7 +113,9 @@ const ToneOfVoiceSection = () => {
         </h2>
 
         <p className="text-muted-foreground font-modernist text-xs md:text-base max-w-2xl mx-auto leading-relaxed px-4">
-          Gaya penyampaian pesan Markaz Fiqih mencerminkan nilai kedalaman ilmu, ketegasan fokus, dan keadaban akademis dalam setiap publikasi.
+          {isHaramain
+            ? "Gaya penyampaian pesan Haramain Capture mencerminkan layanan dokumentasi ibadah yang khidmat, profesional, menjaga adab, dan menghormati momen jamaah."
+            : "Gaya penyampaian pesan Markaz Fiqih mencerminkan nilai kedalaman ilmu, ketegasan fokus, dan keadaban akademis dalam setiap publikasi."}
         </p>
       </div>
 
@@ -85,7 +129,7 @@ const ToneOfVoiceSection = () => {
             <div>
               {/* Header Icon & Tag */}
               <div className="flex justify-between items-start mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#AB2130] border border-brand-gold/40 flex items-center justify-center text-brand-gold-light shadow-md">
+                <div className="w-12 h-12 rounded-2xl bg-brand-burgundy border border-brand-gold/40 flex items-center justify-center text-brand-gold-light shadow-md">
                   {item.icon}
                 </div>
                 <span className="text-[10px] font-modernist font-bold uppercase tracking-widest px-3 py-1 bg-brand-red/5 rounded-full border border-brand-red/10 text-brand-red">
@@ -132,7 +176,7 @@ const ToneOfVoiceSection = () => {
 
       {/* --- 3. FOOTER METADATA TAG --- */}
       <div className="mt-16 md:mt-20 max-w-7xl mx-auto pt-6 border-t border-black/10 flex justify-between items-center text-[10px] font-modernist uppercase tracking-widest text-muted-foreground/60">
-        <span>Markaz Fiqih Voice & Philosophy</span>
+        <span>{brand.name} Voice & Philosophy</span>
         <span className="text-brand-red font-bold">09 / 10</span>
       </div>
 

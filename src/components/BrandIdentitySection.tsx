@@ -1,13 +1,13 @@
 import { useState } from "react";
-import logoFix21 from "@/assets/logo-markaz-fiqih-fix-2-1.png";
-import logoFix21White from "@/assets/logo-markaz-fiqih-fix-2-1-white.png";
 import { Sparkles, Layers, Compass, Quote } from "lucide-react";
+import { useBrand } from "@/lib/brand";
 
 const BrandIdentitySection = () => {
   const [activeTab, setActiveTab] = useState<"dark" | "light">("light");
+  const brand = useBrand();
 
   return (
-    <section id="brand-identity" className="relative min-h-screen w-full bg-[#AB2130] text-white py-16 md:py-24 px-6 md:px-12 lg:px-20 overflow-hidden font-modernist">
+    <section id="brand-identity" className="relative min-h-screen w-full bg-brand-burgundy text-white py-16 md:py-24 px-6 md:px-12 lg:px-20 overflow-hidden font-modernist">
       
       {/* --- BACKGROUND AMBIENCE --- */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-gold/15 rounded-full blur-[160px] pointer-events-none" />
@@ -26,7 +26,7 @@ const BrandIdentitySection = () => {
         </h2>
 
         <p className="text-white/80 font-modernist text-xs md:text-base max-w-2xl mx-auto leading-relaxed px-4">
-          Penegasan identitas visual Markaz Fiqih pada berbagai variasi latar sebagai simbol kedalaman keilmuan fiqih dan rumah bagi keluasan ilmu.
+          Penegasan identitas visual {brand.name} pada berbagai variasi latar sebagai sistem visual yang konsisten, kuat, dan mudah dikenali.
         </p>
       </div>
 
@@ -42,11 +42,11 @@ const BrandIdentitySection = () => {
               onClick={() => setActiveTab("light")}
               className={`flex-1 sm:flex-none px-3.5 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-bold font-modernist transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 ${
                 activeTab === "light"
-                  ? "bg-[#FDFBF7] text-[#AB2130] shadow-lg border border-white"
+                  ? "bg-brand-cream text-brand-red shadow-lg border border-white"
                   : "text-white/70 hover:text-white"
               }`}
             >
-              <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#AB2130] flex-shrink-0"></span>
+              <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-brand-red flex-shrink-0"></span>
               <span className="whitespace-nowrap">Latar Terang</span>
             </button>
 
@@ -54,7 +54,7 @@ const BrandIdentitySection = () => {
               onClick={() => setActiveTab("dark")}
               className={`flex-1 sm:flex-none px-3.5 sm:px-5 py-2 rounded-full text-[11px] sm:text-xs font-bold font-modernist transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 ${
                 activeTab === "dark"
-                  ? "bg-[#4A0E17] text-white shadow-lg border border-brand-gold/40"
+                  ? "bg-brand-black text-white shadow-lg border border-brand-gold/40"
                   : "text-white/70 hover:text-white"
               }`}
             >
@@ -73,19 +73,19 @@ const BrandIdentitySection = () => {
             {/* Main Showcase Container */}
             <div className={`relative w-full min-h-[280px] sm:min-h-[400px] md:min-h-[420px] rounded-[2rem] sm:rounded-[2.5rem] border shadow-2xl p-6 sm:p-12 md:p-14 flex flex-col justify-between transition-all duration-500 overflow-hidden ${
               activeTab === "dark"
-                ? "bg-[#4A0E17] border-brand-gold/40 shadow-black/70"
-                : "bg-[#FDFBF7] border-white shadow-2xl"
+                ? "bg-brand-black border-brand-gold/40 shadow-black/70"
+                : "bg-brand-cream border-white shadow-2xl"
             }`}>
               
               {/* Top Watermark Badge */}
               <div className="flex justify-between items-center w-full relative z-10 font-modernist">
                 <span className={`text-[9px] sm:text-[10px] font-modernist font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] ${
-                  activeTab === "dark" ? "text-brand-gold-light/80" : "text-[#AB2130]/70"
+                  activeTab === "dark" ? "text-brand-gold-light/80" : "text-brand-red/70"
                 }`}>
-                  Master Logo Markaz Fiqih
+                  Master Logo {brand.name}
                 </span>
                 <span className={`text-[9px] sm:text-[10px] font-modernist font-bold uppercase tracking-widest px-2 sm:px-2.5 py-0.5 rounded-full border ${
-                  activeTab === "dark" ? "border-brand-gold/30 text-brand-gold-light bg-black/30" : "border-[#AB2130]/20 text-[#AB2130] bg-[#AB2130]/5"
+                  activeTab === "dark" ? "border-brand-gold/30 text-brand-gold-light bg-black/30" : "border-brand-red/20 text-brand-red bg-brand-red/5"
                 }`}>
                   {activeTab === "dark" ? "Primary Dark" : "Primary Light"}
                 </span>
@@ -118,9 +118,9 @@ const BrandIdentitySection = () => {
 
                   {/* Logo Image */}
                   <img 
-                    src={activeTab === "dark" ? logoFix21White : logoFix21} 
-                    alt="Logo Markaz Fiqih Master Showcase" 
-                    className="w-full max-w-[260px] sm:max-w-[360px] h-auto object-contain drop-shadow-2xl transition-transform duration-500 group-hover/grid:scale-105 relative z-10"
+                    src={activeTab === "dark" ? brand.assets.dark : brand.assets.primary} 
+                    alt={`Logo ${brand.name} Master Showcase`} 
+                    className="w-full max-w-[240px] sm:max-w-[340px] max-h-[360px] h-auto object-contain drop-shadow-2xl transition-transform duration-500 group-hover/grid:scale-105 relative z-10"
                   />
                 </div>
               </div>
@@ -130,8 +130,8 @@ const BrandIdentitySection = () => {
                 activeTab === "dark" ? "border-white/15 text-white/60" : "border-black/10 text-black/50"
               }`}>
                 <span>Vector High-Res Master</span>
-                <span className={activeTab === "dark" ? "text-brand-gold-light" : "text-[#AB2130]"}>
-                  Markaz Fiqih Identity
+                <span className={activeTab === "dark" ? "text-brand-gold-light" : "text-brand-red"}>
+                  {brand.shortName} Identity
                 </span>
               </div>
 
@@ -156,7 +156,7 @@ const BrandIdentitySection = () => {
                 </div>
               </div>
               <p className="text-white/80 text-[10px] sm:text-sm font-modernist leading-relaxed line-clamp-4 sm:line-clamp-none">
-                Penyatuan <strong className="text-white">Wadah Ilmu</strong> & <strong className="text-white">Buku Terbuka</strong> dengan <strong className="text-brand-gold-light">Titik Emas Takhassus</strong>.
+                Penyatuan <strong className="text-white">simbol utama</strong> & <strong className="text-white">logotype</strong> dengan <strong className="text-brand-gold-light">aksen warna primer</strong> yang kuat.
               </p>
             </div>
           </div>
@@ -174,7 +174,7 @@ const BrandIdentitySection = () => {
                 </div>
               </div>
               <p className="text-white/80 text-[10px] sm:text-sm font-modernist leading-relaxed line-clamp-4 sm:line-clamp-none">
-                Pusat studi & rumah pembelajaran fiqih yang kokoh, ilmiah, serta relevan.
+                Identitas visual yang kokoh, profesional, mudah dikenali, dan relevan di berbagai media.
               </p>
             </div>
           </div>
@@ -183,10 +183,10 @@ const BrandIdentitySection = () => {
           <div className="col-span-2 lg:col-span-1 p-3.5 sm:p-6 rounded-xl sm:rounded-3xl bg-gradient-to-r from-brand-gold/20 to-black/40 border border-brand-gold/40 backdrop-blur-md relative overflow-hidden">
             <Quote className="absolute top-2 right-2 w-6 h-6 sm:w-12 sm:h-12 text-brand-gold-light/15 pointer-events-none" />
             <p className="text-white/90 italic text-[11px] sm:text-sm font-modernist font-light leading-relaxed relative z-10">
-              "Markaz Fiqih adalah rumah bagi keluasan ilmu dengan fiqih sebagai pusat keahliannya."
+              {brand.tagline}
             </p>
             <span className="text-[8px] sm:text-[9px] font-modernist font-bold uppercase tracking-widest text-brand-gold-light mt-1.5 sm:mt-3 block relative z-10">
-              — Markaz Fiqih Identity Message
+              — {brand.name} Identity Message
             </span>
           </div>
 
@@ -196,7 +196,7 @@ const BrandIdentitySection = () => {
 
       {/* --- FOOTER METADATA TAG --- */}
       <div className="mt-16 md:mt-20 max-w-7xl mx-auto pt-6 border-t border-white/15 flex justify-between items-center text-[10px] font-modernist uppercase tracking-widest text-white/50">
-        <span>Markaz Fiqih Guidelines</span>
+        <span>{brand.name} Guidelines</span>
         <span className="text-brand-gold-light font-bold">01 / 10</span>
       </div>
 
@@ -205,3 +205,4 @@ const BrandIdentitySection = () => {
 };
 
 export default BrandIdentitySection;
+

@@ -121,6 +121,31 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  .theme-haramain {
+    --foreground: 95 12% 10%;
+    --card-foreground: 95 12% 10%;
+    --popover-foreground: 95 12% 10%;
+    --primary: 95 12% 10%;
+    --secondary: 86 44% 93%;
+    --secondary-foreground: 95 12% 10%;
+    --muted: 86 44% 93%;
+    --muted-foreground: 95 8% 38%;
+    --accent: 84 68% 48%;
+    --accent-foreground: 0 0% 100%;
+    --border: 84 20% 82%;
+    --input: 84 20% 82%;
+    --ring: 84 68% 48%;
+
+    --brand-burgundy: 95 12% 10%;       /* #1B1D19 Haramain black */
+    --brand-burgundy-light: 84 68% 48%; /* #9AD12A Haramain green */
+    --brand-red: 84 68% 48%;
+    --brand-gold: 84 68% 48%;
+    --brand-gold-light: 84 78% 58%;
+    --brand-cream: 84 42% 97%;
+    --brand-sand: 86 44% 93%;
+    --brand-black: 95 12% 10%;
+  }
 }
 
 @layer base {

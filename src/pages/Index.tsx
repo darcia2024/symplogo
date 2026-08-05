@@ -11,24 +11,31 @@ import TypographySection from "@/components/TypographySection";
 import IncorrectUsageSection from "@/components/IncorrectUsageSection";
 import LogoPhilosophyDetailSection from "@/components/LogoPhilosophyDetailSection";
 import FooterSection from "@/components/FooterSection";
+import { BrandProvider, type BrandConfig } from "@/lib/brand";
 
-const Index = () => {
+type IndexProps = {
+  brand: BrandConfig;
+};
+
+const Index = ({ brand }: IndexProps) => {
   return (
-    <main className="overflow-x-hidden relative">
-      <Navbar />
-      <HeroSection />
-      <BrandIdentitySection />
-      <LogoQuoteSection />
-      <LogoVariationsSection />
-      <BrandOverviewSection />
-      <PhilosophySection />
-      <PhilosophyMeaningSection />
-      <ColorSystemSection />
-      <TypographySection />
-      <IncorrectUsageSection />
-      <LogoPhilosophyDetailSection />
-      <FooterSection />
-    </main>
+    <BrandProvider brand={brand}>
+      <main className={`overflow-x-hidden relative ${brand.themeClass}`}>
+        <Navbar />
+        <HeroSection />
+        <BrandIdentitySection />
+        <LogoQuoteSection />
+        <LogoVariationsSection />
+        <BrandOverviewSection />
+        <PhilosophySection />
+        <PhilosophyMeaningSection />
+        <ColorSystemSection />
+        <TypographySection />
+        <IncorrectUsageSection />
+        <LogoPhilosophyDetailSection />
+        <FooterSection />
+      </main>
+    </BrandProvider>
   );
 };
 

@@ -1,27 +1,47 @@
-import logoFix from "@/assets/logo-markaz-fiqih-fix.png";
-import { Home, BookOpen, Compass } from "lucide-react";
+import { Aperture, Camera, Compass, Home } from "lucide-react";
+import { useBrand } from "@/lib/brand";
 
 const PhilosophySection = () => {
-  const pillars = [
-    { 
-      title: "Rumah Wadah Ilmu", 
-      desc: "Wadah aman, terstruktur, dan terbuka. Ruang intelektual dan spiritual tempat ilmu dipelajari, dijaga, dan diamalkan.",
-      icon: <Home className="w-5 h-5 md:w-6 md:h-6" />
-    },
-    { 
-      title: "Buku & Perjalanan Pembelajaran", 
-      desc: "Lengkungan halaman melambangkan bahwa pembelajaran adalah perjalanan panjang yang terus membaca, memahami, dan memperdalam.",
-      icon: <BookOpen className="w-5 h-5 md:w-6 md:h-6" />
-    },
-    { 
-      title: "Takhassus Fiqih (Fokus Utama)", 
-      desc: "Elemen emas di titik pusat menegaskan fiqih sebagai inti kegiatan keilmuan yang sistematis dan dapat dipertanggungjawabkan.",
-      icon: <Compass className="w-5 h-5 md:w-6 md:h-6" />
-    },
-  ];
+  const brand = useBrand();
+  const isHaramain = brand.slug === "haramaincapture";
+  const pillars = isHaramain
+    ? [
+        {
+          title: "Kubah & Gerbang Suci",
+          desc: "Lengkung hijau membentuk siluet kubah sekaligus gerbang masuk, menandai perjalanan jamaah menuju ruang ibadah dalam rangkaian umrah, ziarah, dan ibadah lain.",
+          icon: <Home className="w-5 h-5 md:w-6 md:h-6" />,
+        },
+        {
+          title: "Aperture Kamera",
+          desc: "Bidang hitam di tengah membentuk karakter shutter kamera, menegaskan peran Haramain Capture dalam menangkap momen ibadah jamaah secara fokus, rapi, dan presisi.",
+          icon: <Aperture className="w-5 h-5 md:w-6 md:h-6" />,
+        },
+        {
+          title: "Dua Menara Penjaga",
+          desc: "Dua menara di sisi atas memberi kesan simetri, arah, dan suasana tanah suci yang menjadi latar emosional perjalanan umrah dan ziarah.",
+          icon: <Camera className="w-5 h-5 md:w-6 md:h-6" />,
+        },
+      ]
+    : [
+        {
+          title: "Rumah Wadah Ilmu",
+          desc: "Wadah aman, terstruktur, dan terbuka. Ruang intelektual dan spiritual tempat ilmu dipelajari, dijaga, dan diamalkan.",
+          icon: <Home className="w-5 h-5 md:w-6 md:h-6" />,
+        },
+        {
+          title: "Buku & Perjalanan Pembelajaran",
+          desc: "Lengkungan halaman melambangkan bahwa pembelajaran adalah perjalanan panjang yang terus membaca, memahami, dan memperdalam.",
+          icon: <Compass className="w-5 h-5 md:w-6 md:h-6" />,
+        },
+        {
+          title: "Takhassus Fiqih (Fokus Utama)",
+          desc: "Elemen emas di titik pusat menegaskan fiqih sebagai inti kegiatan keilmuan yang sistematis dan dapat dipertanggungjawabkan.",
+          icon: <Compass className="w-5 h-5 md:w-6 md:h-6" />,
+        },
+      ];
 
   return (
-    <section className="w-full bg-[#FDFBF7] flex flex-col items-center justify-center py-10 sm:py-16 md:py-20 px-4 md:px-12 lg:px-20 relative overflow-hidden font-modernist">
+    <section className="w-full bg-brand-cream flex flex-col items-center justify-center py-10 sm:py-16 md:py-20 px-4 md:px-12 lg:px-20 relative overflow-hidden font-modernist">
       
       {/* Background Ambience */}
       <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-amber-100/30 via-transparent to-transparent pointer-events-none" />
@@ -35,7 +55,9 @@ const PhilosophySection = () => {
         
         {/* Subtitle */}
         <p className="text-muted-foreground font-modernist font-normal text-xs md:text-base max-w-2xl mx-auto leading-relaxed">
-          Memadukan siluet rumah dan buku terbuka dalam satu kesatuan visual yang utuh dengan elemen emas sebagai pusat perhatian.
+          {isHaramain
+            ? "Memadukan kubah, gerbang masjid, menara, dan aperture kamera sebagai simbol layanan dokumentasi umrah, ziarah, dan perjalanan ibadah."
+            : "Memadukan simbol utama dan logotype dalam satu kesatuan visual yang utuh dengan warna primer sebagai pusat perhatian."}
         </p>
       </div>
 
@@ -59,9 +81,9 @@ const PhilosophySection = () => {
                 <div className="absolute inset-0 bg-brand-gold/15 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 
                 <img 
-                    src={logoFix} 
-                    alt="Simbol Markaz Fiqih FIX" 
-                    className="relative w-48 md:w-72 lg:w-80 h-auto object-contain drop-shadow-xl transition-transform duration-500 group-hover:scale-105 z-10"
+                    src={brand.assets.primary} 
+                    alt={`Simbol ${brand.name}`} 
+                    className="relative w-48 md:w-72 lg:w-80 max-h-[420px] h-auto object-contain drop-shadow-xl transition-transform duration-500 group-hover:scale-105 z-10"
                 />
             </div>
         </div>
@@ -70,10 +92,12 @@ const PhilosophySection = () => {
         <div className="space-y-6 md:space-y-8 font-modernist">
             <div>
                 <h3 className="font-modernist font-bold text-2xl md:text-3xl text-brand-burgundy mb-2">
-                    Harmoni Wadah & Ilmu
+                    {isHaramain ? "Harmoni Ibadah & Dokumentasi" : "Harmoni Wadah & Ilmu"}
                 </h3>
                 <p className="text-muted-foreground font-modernist leading-relaxed text-xs md:text-sm">
-                    Pertemuan garis buku pada bagian atas membentuk kesan dua halaman yang terbuka sekaligus menyerupai atap rumah. Komposisi ini menunjukkan bahwa ilmu dan tempat belajar tidak berdiri sendiri: ilmu membutuhkan wadah yang baik, dan lembaga bermakna bila diisi ilmu yang bermanfaat.
+                    {isHaramain
+                      ? "Logo Haramain Capture dibangun dari pertemuan dua dunia: perjalanan ibadah sebagai sumber makna, dan kamera sebagai alat merawat kenangan jamaah. Lengkung hijau menghadirkan kesan kubah dan gerbang, sementara bentuk shutter di tengah menegaskan layanan dokumentasi yang fokus namun tetap menjaga adab."
+                      : "Pertemuan garis buku pada bagian atas membentuk kesan dua halaman yang terbuka sekaligus menyerupai atap rumah. Komposisi ini menunjukkan bahwa ilmu dan tempat belajar tidak berdiri sendiri: ilmu membutuhkan wadah yang baik, dan lembaga bermakna bila diisi ilmu yang bermanfaat."}
                 </p>
             </div>
 
@@ -104,7 +128,7 @@ const PhilosophySection = () => {
 
       {/* --- 3. FOOTER CAPTION --- */}
       <div className="mt-16 md:mt-20 text-center z-10 font-modernist flex justify-between items-center max-w-6xl mx-auto w-full border-t border-black/10 pt-4 text-xs font-bold text-muted-foreground/70 uppercase tracking-widest">
-        <span>Markaz Fiqih — Visual Identity System</span>
+        <span>{brand.name} — Visual Identity System</span>
         <span className="text-brand-red">05 / 10</span>
       </div>
 
@@ -113,3 +137,4 @@ const PhilosophySection = () => {
 };
 
 export default PhilosophySection;
+

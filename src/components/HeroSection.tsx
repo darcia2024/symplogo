@@ -1,7 +1,9 @@
-import logoFix21White from "@/assets/logo-markaz-fiqih-fix-2-1-white.png";
 import logoSympWhite from "@/assets/logo-symp-white.png";
+import { useBrand } from "@/lib/brand";
 
 const HeroSection = () => {
+  const brand = useBrand();
+  const isHaramain = brand.slug === "haramaincapture";
   const scrollToNext = () => {
     const nextSection = document.getElementById("brand-identity");
     nextSection?.scrollIntoView({ behavior: "smooth" });
@@ -9,19 +11,40 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center bg-brand-burgundy overflow-hidden px-4 font-modernist pt-24 pb-12">
-      {/* Background gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#8B1825] via-[#AB2130] to-[#991D2A] opacity-95" />
-      
-      {/* Soft Ambient Gold Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[480px] h-[120px] sm:h-[180px] bg-brand-gold/15 rounded-full blur-[60px] sm:blur-[90px] pointer-events-none animate-pulse-slow" />
+      {isHaramain ? (
+        <>
+          <div className="absolute inset-0 bg-[linear-gradient(135deg,#071007_0%,#182016_42%,#9AD12A_160%)]" />
+          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(154,209,42,0.26),_transparent_46%),linear-gradient(180deg,_rgba(0,0,0,0.08)_0%,_rgba(0,0,0,0.64)_100%)]" />
+          <div
+            className="absolute inset-0 opacity-[0.13] pointer-events-none"
+            style={{
+              backgroundImage:
+                "linear-gradient(30deg, rgba(255,255,255,0.16) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.16) 87.5%, rgba(255,255,255,0.16)), linear-gradient(150deg, rgba(255,255,255,0.16) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.16) 87.5%, rgba(255,255,255,0.16)), linear-gradient(30deg, rgba(255,255,255,0.16) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.16) 87.5%, rgba(255,255,255,0.16)), linear-gradient(150deg, rgba(255,255,255,0.16) 12%, transparent 12.5%, transparent 87%, rgba(255,255,255,0.16) 87.5%, rgba(255,255,255,0.16))",
+              backgroundPosition: "0 0, 0 0, 32px 56px, 32px 56px",
+              backgroundSize: "64px 112px",
+            }}
+          />
+          <div className="absolute left-[-15vw] top-0 h-full w-[42vw] rotate-[-12deg] bg-gradient-to-r from-transparent via-white/[0.07] to-transparent pointer-events-none" />
+          <div className="absolute right-[-18vw] bottom-0 h-full w-[40vw] rotate-[14deg] bg-gradient-to-r from-transparent via-brand-gold/[0.08] to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/55 to-transparent pointer-events-none" />
+        </>
+      ) : (
+        <>
+          {/* Background gradient overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-brand-black via-brand-burgundy to-brand-burgundy-light opacity-95" />
+          
+          {/* Soft Ambient Gold Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[480px] h-[120px] sm:h-[180px] bg-brand-gold/15 rounded-full blur-[60px] sm:blur-[90px] pointer-events-none animate-pulse-slow" />
 
-      {/* Subtle geometric grid pattern overlay */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, #E5C158 1px, transparent 0)`,
-          backgroundSize: '48px 48px'
-        }} />
-      </div>
+          {/* Subtle geometric grid pattern overlay */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, #E5C158 1px, transparent 0)`,
+              backgroundSize: '48px 48px'
+            }} />
+          </div>
+        </>
+      )}
 
       {/* TOP FLOATING OUTLINE CREDIT BADGE (HIGH POSITION ABOVE HERO LOGO) */}
       <div className="absolute top-20 sm:top-24 left-1/2 -translate-x-1/2 z-30 w-full flex justify-center px-4">
@@ -49,9 +72,9 @@ const HeroSection = () => {
           {/* Main Logo Image with Precision Drop-Shadow Following the Exact Outline of Logo Text & Emblem */}
           <div className="relative group cursor-pointer animate-float">
             <img 
-              src={logoFix21White} 
-              alt="Logo Markaz Fiqih." 
-              className="relative z-10 w-[260px] xs:w-[320px] sm:w-[440px] md:w-[560px] lg:w-[660px] h-auto drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)] drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-500 ease-out"
+              src={brand.assets.dark} 
+              alt={`Logo ${brand.name}.`} 
+              className="relative z-10 w-[240px] xs:w-[300px] sm:w-[420px] md:w-[520px] lg:w-[620px] max-h-[64vh] h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)] drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-500 ease-out"
             />
           </div>
         </div>
