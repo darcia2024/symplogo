@@ -6,8 +6,12 @@ import logoMarkazHorizontalRed from "@/assets/logo-horizontal-red.png";
 import logoMarkazIconWhite from "@/assets/logo-icon-white.png";
 import logoMarkazIconMono from "@/assets/logo-icon-mono.png";
 import logoMarkazVertical from "@/assets/LogoVertikal.png";
-import logoHaramain from "@/assets/logo-haramain-capture.png";
-import logoHaramainDark from "@/assets/logo-haramain-capture-dark.png";
+import logoHaramainHorizontalBlack from "@/assets/haramain-logo-horizontal-black.png";
+import logoHaramainHorizontalColor from "@/assets/haramain-logo-horizontal-color.png";
+import logoHaramainHorizontalWhite from "@/assets/haramain-logo-horizontal-white.png";
+import logoHaramainVerticalBlack from "@/assets/haramain-logo-vertical-black.png";
+import logoHaramainVerticalColor from "@/assets/haramain-logo-vertical-color.png";
+import logoHaramainVerticalWhite from "@/assets/haramain-logo-vertical-white.png";
 
 export type BrandSlug = "markazfiqih" | "haramaincapture";
 
@@ -46,13 +50,13 @@ const markazAssets: BrandAssets = {
 };
 
 const haramainAssets: BrandAssets = {
-  primary: logoHaramain,
-  dark: logoHaramainDark,
-  horizontalWhite: logoHaramainDark,
-  horizontalColor: logoHaramain,
-  vertical: logoHaramainDark,
-  iconWhite: logoHaramainDark,
-  iconMono: logoHaramain,
+  primary: logoHaramainVerticalColor,
+  dark: logoHaramainVerticalWhite,
+  horizontalWhite: logoHaramainHorizontalWhite,
+  horizontalColor: logoHaramainHorizontalColor,
+  vertical: logoHaramainVerticalWhite,
+  iconWhite: logoHaramainVerticalWhite,
+  iconMono: logoHaramainVerticalBlack,
 };
 
 export const brands: Record<BrandSlug, BrandConfig> = {
