@@ -4,6 +4,8 @@ import { useBrand } from "@/lib/brand";
 const HeroSection = () => {
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
+  const isHamasah = brand.slug === "hamasahbakery";
+
   const scrollToNext = () => {
     const nextSection = document.getElementById("brand-identity");
     nextSection?.scrollIntoView({ behavior: "smooth" });
@@ -27,6 +29,22 @@ const HeroSection = () => {
           <div className="absolute left-[-15vw] top-0 h-full w-[42vw] rotate-[-12deg] bg-gradient-to-r from-transparent via-white/[0.07] to-transparent pointer-events-none" />
           <div className="absolute right-[-18vw] bottom-0 h-full w-[40vw] rotate-[14deg] bg-gradient-to-r from-transparent via-brand-gold/[0.08] to-transparent pointer-events-none" />
           <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-black/55 to-transparent pointer-events-none" />
+        </>
+      ) : isHamasah ? (
+        <>
+          {/* Background gradient overlay for Hamasah */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#3B220B] via-[#5B3715] to-[#45270D] opacity-95" />
+          
+          {/* Soft Ambient Gold Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[500px] h-[140px] sm:h-[200px] bg-[#FFD21C]/20 rounded-full blur-[60px] sm:blur-[90px] pointer-events-none animate-pulse-slow" />
+
+          {/* Subtle geometric grid pattern overlay */}
+          <div className="absolute inset-0 opacity-10 pointer-events-none">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `radial-gradient(circle at 2px 2px, #FFD21C 1px, transparent 0)`,
+              backgroundSize: '48px 48px'
+            }} />
+          </div>
         </>
       ) : (
         <>
@@ -75,7 +93,9 @@ const HeroSection = () => {
               src={brand.assets.dark} 
               alt={`Logo ${brand.name}.`} 
               className={`relative z-10 h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)] drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-500 ease-out ${
-                isHaramain
+                isHamasah
+                  ? "w-[220px] xs:w-[270px] sm:w-[380px] md:w-[460px] lg:w-[540px] max-h-[58vh]"
+                  : isHaramain
                   ? "w-[205px] xs:w-[255px] sm:w-[350px] md:w-[430px] lg:w-[505px] max-h-[54vh]"
                   : "w-[240px] xs:w-[300px] sm:w-[420px] md:w-[520px] lg:w-[620px] max-h-[64vh]"
               }`}
