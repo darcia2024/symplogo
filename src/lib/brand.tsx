@@ -14,6 +14,7 @@ import logoHaramainVerticalColor from "@/assets/haramain-logo-vertical-color.png
 import logoHaramainVerticalWhite from "@/assets/haramain-logo-vertical-white.png";
 
 import logoHamasahHeroCustom from "@/assets/hamasah-logo-hero-custom.png";
+import logoHamasahLightBgCustom from "@/assets/hamasah-logo-light-bg-custom.png";
 import logoHamasahPrimary from "@/assets/hamasah-logo-primary.png";
 import logoHamasahDark from "@/assets/hamasah-logo-dark.png";
 import logoHamasahYellowBg from "@/assets/hamasah-logo-yellow-bg.png";
@@ -76,13 +77,13 @@ const hamasahAssets: BrandAssets = {
   primary: logoHamasahHeroCustom,
   dark: logoHamasahHeroCustom,
   horizontalWhite: logoHamasahHeroCustom,
-  horizontalColor: logoHamasahCreamBg,
+  horizontalColor: logoHamasahLightBgCustom,
   vertical: logoHamasahHeroCustom,
   iconWhite: logoHamasahIcon,
   iconMono: logoHamasahIcon,
   board: logoHamasahBoard,
   yellowBg: logoHamasahYellowBg,
-  creamBg: logoHamasahCreamBg,
+  creamBg: logoHamasahLightBgCustom,
   coralBg: logoHamasahCoralBg,
 };
 
