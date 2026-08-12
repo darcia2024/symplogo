@@ -13,9 +13,17 @@ import logoHaramainVerticalBlack from "@/assets/haramain-logo-vertical-black.png
 import logoHaramainVerticalColor from "@/assets/haramain-logo-vertical-color.png";
 import logoHaramainVerticalWhite from "@/assets/haramain-logo-vertical-white.png";
 
-export type BrandSlug = "markazfiqih" | "haramaincapture";
+import logoHamasahPrimary from "@/assets/hamasah-logo-primary.png";
+import logoHamasahDark from "@/assets/hamasah-logo-dark.png";
+import logoHamasahYellowBg from "@/assets/hamasah-logo-yellow-bg.png";
+import logoHamasahCreamBg from "@/assets/hamasah-logo-cream-bg.png";
+import logoHamasahCoralBg from "@/assets/hamasah-logo-coral-bg.png";
+import logoHamasahIcon from "@/assets/hamasah-logo-icon.png";
+import logoHamasahBoard from "@/assets/hamasah-board.png";
 
-type BrandAssets = {
+export type BrandSlug = "markazfiqih" | "haramaincapture" | "hamasahbakery";
+
+export type BrandAssets = {
   primary: string;
   dark: string;
   horizontalWhite: string;
@@ -23,6 +31,10 @@ type BrandAssets = {
   vertical: string;
   iconWhite: string;
   iconMono: string;
+  board?: string;
+  yellowBg?: string;
+  creamBg?: string;
+  coralBg?: string;
 };
 
 export type BrandConfig = {
@@ -57,6 +69,20 @@ const haramainAssets: BrandAssets = {
   vertical: logoHaramainVerticalWhite,
   iconWhite: logoHaramainVerticalWhite,
   iconMono: logoHaramainVerticalBlack,
+};
+
+const hamasahAssets: BrandAssets = {
+  primary: logoHamasahPrimary,
+  dark: logoHamasahDark,
+  horizontalWhite: logoHamasahPrimary,
+  horizontalColor: logoHamasahCreamBg,
+  vertical: logoHamasahPrimary,
+  iconWhite: logoHamasahIcon,
+  iconMono: logoHamasahIcon,
+  board: logoHamasahBoard,
+  yellowBg: logoHamasahYellowBg,
+  creamBg: logoHamasahCreamBg,
+  coralBg: logoHamasahCoralBg,
 };
 
 export const brands: Record<BrandSlug, BrandConfig> = {
@@ -95,6 +121,24 @@ export const brands: Record<BrandSlug, BrandConfig> = {
       </>
     ),
     assets: haramainAssets,
+  },
+  hamasahbakery: {
+    slug: "hamasahbakery",
+    name: "Hamasah Bakery",
+    shortName: "Hamasah",
+    handle: "@hamasahbakery",
+    themeClass: "theme-hamasah",
+    identityLabel: "Hamasah Bakery Identity",
+    tagline: "Kehangatan Roti Fresh dari Oven dengan Cita Rasa Lembut & Penuh Semangat",
+    description:
+      "Hamasah Bakery menghadirkan aneka roti dan pastry hangat berkualitas tinggi, dipanggang dengan penuh semangat dan bahan pilihan untuk menghadirkan senyuman di setiap gigitan.",
+    assetDownloadUrl: "https://drive.google.com/drive/folders/1dANLt2tRcRkbuzqva2ojJey56fGnEqH-?usp=sharing",
+    manifesto: (
+      <>
+        Secara keseluruhan, identitas visual Hamasah Bakery membawa <span className="text-brand-gold-light font-extrabold underline decoration-brand-gold/40 underline-offset-4 sm:underline-offset-8">tiga pesan utama</span>: <span className="text-brand-gold-light">rumah hangat</span> sebagai tempat dipanggangnya keceriaan, <span className="text-brand-gold-light">roti senyum</span> sebagai simbol kenikmatan lembut, dan <span className="text-brand-gold-light">warna keemasan</span> sebagai ekspresi kelezatan roti fresh oven.
+      </>
+    ),
+    assets: hamasahAssets,
   },
 };
 

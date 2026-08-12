@@ -4,11 +4,13 @@ import { useBrand } from "@/lib/brand";
 const TypographySection = () => {
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
+  const isHamasah = brand.slug === "hamasahbakery";
+
   const fontClass = isHaramain ? "font-trajan" : "font-modernist";
-  const typefaceName = isHaramain ? "Trajan Pro 3" : "Sk-Modernist";
-  const firstWord = isHaramain ? "Haramain" : "Markaz";
-  const secondWord = isHaramain ? "Capture" : "Fiqih";
-  const typefaceTraits = isHaramain ? "Klasik • Elegan • Monumental" : "Tegas • Modern • Geometris";
+  const typefaceName = isHamasah ? "Hamasah Handcrafted Display" : isHaramain ? "Trajan Pro 3" : "Sk-Modernist";
+  const firstWord = isHamasah ? "Hamasah" : isHaramain ? "Haramain" : "Markaz";
+  const secondWord = isHamasah ? "Bakery" : isHaramain ? "Capture" : "Fiqih";
+  const typefaceTraits = isHamasah ? "Ramah • Ceria • Organik & Manis" : isHaramain ? "Klasik • Elegan • Monumental" : "Tegas • Modern • Geometris";
 
   return (
     <section className={`relative min-h-[100dvh] w-full bg-brand-sand overflow-hidden flex flex-col justify-between py-8 px-6 md:py-12 md:px-12 lg:px-20 text-brand-burgundy ${fontClass}`}>
@@ -47,16 +49,16 @@ const TypographySection = () => {
         {/* --- MAIN TYPOGRAPHY STACK --- */}
         <div className={`relative text-center max-w-4xl ${fontClass} flex flex-col items-center justify-center`}>
             
-            {/* 1. MARKAZ (Atas) */}
+            {/* 1. HAMASAH / MARKAZ (Atas) */}
             <div className="relative">
                 <h2 className={`${fontClass} font-extrabold text-5xl sm:text-7xl md:text-8xl lg:text-[8.5rem] leading-[0.9] text-brand-burgundy tracking-normal`}>
                     {firstWord}
                 </h2>
             </div>
 
-            {/* 2. FIQIH (Bawah - rapat) */}
+            {/* 2. BAKERY / FIQIH (Bawah - rapat) */}
             <div className="relative -mt-3 sm:-mt-6 md:-mt-8 lg:-mt-10">
-                 <h2 className={`${fontClass} font-extrabold text-5xl sm:text-7xl md:text-8xl lg:text-[8.5rem] leading-[0.9] text-brand-red tracking-normal`}>
+                 <h2 className={`${fontClass} font-extrabold text-5xl sm:text-7xl md:text-8xl lg:text-[8.5rem] leading-[0.9] text-brand-gold tracking-normal`}>
                     {secondWord}
                 </h2>
             </div>
@@ -80,10 +82,10 @@ const TypographySection = () => {
                 <h3 className={`text-sm md:text-base ${fontClass} font-bold text-brand-red uppercase tracking-wide`}>Typeface — {typefaceName}:</h3>
                 <div className={`space-y-1.5 text-xs md:text-sm text-brand-burgundy/80 ${fontClass} leading-relaxed`}>
                     <p>
-                        <span className="text-brand-burgundy font-bold">Bentuk Huruf Elegan & Monumental:</span> Menggunakan font <span className="text-brand-red font-bold">{typefaceName}</span> (Bold & Regular) yang {isHaramain ? "klasik, berwibawa, dan selaras dengan nuansa perjalanan ibadah serta dokumentasi tanah suci." : "tegas dan geometris untuk menjaga profesionalitas identitas lembaga."}
+                        <span className="text-brand-burgundy font-bold">Bentuk Huruf Organik & Ceria:</span> Menggunakan tipografi <span className="text-brand-red font-bold">{typefaceName}</span> yang {isHamasah ? "memiliki sudut membulat, ramah, dan menyampaikan kehangatan roti fresh dari oven." : isHaramain ? "klasik, berwibawa, dan selaras dengan nuansa perjalanan ibadah serta dokumentasi tanah suci." : "tegas dan geometris untuk menjaga profesionalitas identitas lembaga."}
                     </p>
                     <p>
-                        <span className="text-brand-burgundy font-bold">Hierarki Logotype:</span> Susunan kata "{brand.name}" yang seimbang memudahkan keterbacaan di seluruh media cetak maupun digital.
+                        <span className="text-brand-burgundy font-bold">Hierarki Logotype:</span> Susunan kata "{brand.name}" yang seimbang memudahkan keterbacaan di seluruh kemasan, media cetak, maupun digital.
                     </p>
                 </div>
             </div>
@@ -92,7 +94,7 @@ const TypographySection = () => {
             <div className="flex justify-between md:justify-end items-center gap-6">
                 <div className="text-left md:text-right">
                     <h4 className={`${fontClass} font-bold text-xs md:text-sm text-brand-burgundy`}>{brand.name} Identity</h4>
-                    <p className={`text-[10px] md:text-xs text-brand-burgundy/60 ${fontClass}`}>Font: {typefaceName} (Bold / Regular)</p>
+                    <p className={`text-[10px] md:text-xs text-brand-burgundy/60 ${fontClass}`}>Font: {typefaceName} (Custom Display)</p>
                 </div>
                 <button className="w-9 h-9 md:w-10 md:h-10 rounded-full bg-brand-red/10 hover:bg-brand-red/20 flex items-center justify-center transition-colors border border-brand-red/20">
                     <Bookmark className="w-4 h-4 text-brand-red" />

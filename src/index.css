@@ -146,6 +146,31 @@
     --brand-sand: 86 44% 93%;
     --brand-black: 95 12% 10%;
   }
+
+  .theme-hamasah {
+    --foreground: 30 60% 18%;
+    --card-foreground: 30 60% 18%;
+    --popover-foreground: 30 60% 18%;
+    --primary: 30 60% 22%;
+    --secondary: 47 100% 55%;
+    --secondary-foreground: 30 60% 18%;
+    --muted: 45 80% 95%;
+    --muted-foreground: 30 40% 35%;
+    --accent: 47 100% 55%;
+    --accent-foreground: 30 60% 18%;
+    --border: 45 60% 85%;
+    --input: 45 60% 85%;
+    --ring: 47 100% 55%;
+
+    --brand-burgundy: 30 60% 22%;       /* #5B3715 Chocolate Brown */
+    --brand-burgundy-light: 30 55% 30%; /* #7A4B1D Lighter Brown */
+    --brand-red: 30 60% 22%;            /* #5B3715 Dark Accent */
+    --brand-gold: 47 100% 55%;          /* #FFD21C Warm Sun Yellow */
+    --brand-gold-light: 45 100% 50%;    /* #FFBF00 Amber Gold */
+    --brand-cream: 40 40% 97%;           /* #FFFDF9 Cream White */
+    --brand-sand: 38 70% 94%;            /* #FFEFCB Soft Bakery Cream */
+    --brand-black: 30 65% 15%;           /* #42250B Deep Roast Brown */
+  }
 }
 
 @layer base {

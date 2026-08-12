@@ -41,6 +41,41 @@ const ColorSystemSection = () => {
           swatchClass: "bg-[#EAF5D8] border border-black/10",
         },
       ]
+    : brand.slug === "hamasahbakery"
+    ? [
+        {
+          number: "01",
+          type: "PRIMARY COLOR",
+          hex: "#FFD21C",
+          name: "Bakery Sun Yellow",
+          desc: "Warna utama hangat keemasan yang melambangkan kehangatan roti fresh dari oven.",
+          swatchClass: "bg-[#FFD21C]",
+        },
+        {
+          number: "02",
+          type: "SECONDARY COLOR",
+          hex: "#FFBF00",
+          name: "Honey Golden Amber",
+          desc: "Warna aksen roti panggang matang sempurna dan lelehan mentega manis.",
+          swatchClass: "bg-[#FFBF00]",
+        },
+        {
+          number: "03",
+          type: "DARK ACCENTS",
+          hex: "#5B3715",
+          name: "Dark Roast Chocolate",
+          desc: "Warna kontras utama logotype, teks informasi, dan aksen crust roti.",
+          swatchClass: "bg-[#5B3715]",
+        },
+        {
+          number: "04",
+          type: "OPTIONS / VARIATION",
+          hex: "#FF6666",
+          name: "Strawberry Cream Coral",
+          desc: "Aksen manis untuk varian produk spesial, kemasan festival, dan highlights.",
+          swatchClass: "bg-[#FF6666]",
+        },
+      ]
     : [
         {
           number: "01",

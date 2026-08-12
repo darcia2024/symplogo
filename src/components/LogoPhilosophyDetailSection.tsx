@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { Maximize2, X, Sparkles, Tag, ChevronLeft, ChevronRight, Heart, Bookmark, Share2, MessageCircle, MoreHorizontal, Check } from "lucide-react";
-import logoIconRed from "@/assets/logo-icon-red.png";
+import { Maximize2, X, Sparkles, Tag, ChevronLeft, ChevronRight, Heart, Bookmark, Share2, MessageCircle, Check } from "lucide-react";
 import profileAvatar from "@/assets/icon-kelas-markaz-fiqih.png";
 import mockupKaos from "@/assets/mockup-kaos.png";
 import mockupTotebag from "@/assets/mockup-totebag.png";
@@ -28,6 +27,8 @@ interface GalleryItem {
 const BrandGallerySection = () => {
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
+  const isHamasah = brand.slug === "hamasahbakery";
+
   const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
   const [isLiked, setIsLiked] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
@@ -39,7 +40,7 @@ const BrandGallerySection = () => {
     title: "Kaos Official & Apparel Markaz Fiqih",
     sub: "MERCHANDISE & APPAREL",
     desc: "Penerapan logo Markaz Fiqih pada kaos katun combed premium dengan cetak sablon presisi warna emas & putih pada bagian dada. Didesain untuk kenyamanan civitas akademika dan alumni.",
-    specs: "Cotton Combed 30s â€¢ Plastisol HD Gold Ink â€¢ Unisex Fit",
+    specs: "Cotton Combed 30s • Plastisol HD Gold Ink • Unisex Fit",
     hashtags: "#MarkazFiqih #ApparelResmi #IdentitasKeilmuan #MerchandiseOfficial",
     likes: 1482
   };
@@ -51,7 +52,7 @@ const BrandGallerySection = () => {
       title: "Banner & Signage Branding Visual",
       sub: "OUTDOOR & DIGITAL VISUAL",
       desc: "Desain banner dan papan identitas resmi untuk kebutuhan publikasi kegiatan, backdrop seminar keilmuan, dan media visual outdoor Markaz Fiqih.",
-      specs: "Flexi High-Res Print â€¢ Weatherproof â€¢ Official Proportion",
+      specs: "Flexi High-Res Print • Weatherproof • Official Proportion",
       hashtags: "#MarkazFiqih #BannerResmi #MediaVisual #IdentitasLembaga",
       likes: 1240
     },
@@ -61,7 +62,7 @@ const BrandGallerySection = () => {
       title: "Totebag & Seminar Kit Keilmuan",
       sub: "MEDIA EVENT & PELATIHAN",
       desc: "Desain tas kanvas ramah lingkungan untuk kebutuhan merchandise kegiatan, souvenir pelatihan, dan tempat perlengkapan peserta majlis keilmuan.",
-      specs: "Heavy Canvas 12oz â€¢ Precision Screen Print â€¢ Reinforced Strap",
+      specs: "Heavy Canvas 12oz • Precision Screen Print • Reinforced Strap",
       hashtags: "#MarkazFiqih #TotebagKeilmuan #SeminarKit #MajlisIlmu",
       likes: 1395
     },
@@ -71,7 +72,7 @@ const BrandGallerySection = () => {
       title: "Notebook Journal Takhassus Fiqih",
       sub: "STATIONERY & CATATAN",
       desc: "Buku catatan hardcover eksklusif dengan pita pembatas dan finishing embos emas untuk penulisan faedah keilmuan dan catatan pembelajaran.",
-      specs: "Hardcover Bookbinding â€¢ Foil Gold Emboss â€¢ Book Paper 80gsm",
+      specs: "Hardcover Bookbinding • Foil Gold Emboss • Book Paper 80gsm",
       hashtags: "#MarkazFiqih #JournalTakhassus #CatatanIlmu #FiqihJournal",
       likes: 1650
     },
@@ -81,7 +82,7 @@ const BrandGallerySection = () => {
       title: "Pembatas Buku Keilmuan Eksklusif",
       sub: "PUBLIKASI & LITERASI",
       desc: "Pembatas buku eksklusif bertema keilmuan dengan aksen warna merah & emas khas Markaz Fiqih serta rumbai sutra penyemat mushaf/kitab.",
-      specs: "Art Card 310gsm â€¢ Matte Lamination â€¢ Gold Foil Accent",
+      specs: "Art Card 310gsm • Matte Lamination • Gold Foil Accent",
       hashtags: "#MarkazFiqih #PembatasBuku #LiterasiIslam #KitabFiqih",
       likes: 1820
     },
@@ -141,8 +142,62 @@ const BrandGallerySection = () => {
     },
   ];
 
-  const featuredItem = isHaramain ? haramainKaosItem : kaosItem;
-  const galleryItems = isHaramain ? haramainOtherItems : otherItems;
+  const hamasahBoardItem: GalleryItem = {
+    id: "01",
+    image: brand.assets.board || brand.assets.dark,
+    title: "Hamasah Bakery Master Guidelines Board",
+    sub: "BRAND SYSTEM & DESIGN BOARD",
+    desc: "Penerapan identitas visual Hamasah Bakery secara utuh menyajikan variasi resmi logo, sistem warna (Bakery Sun Yellow, Golden Amber, Dark Chocolate, Coral Pink), serta aturan ruang aman.",
+    specs: "Master Vector Board • Color Swatches • Official Variations",
+    hashtags: "#HamasahBakery #BrandIdentity #FreshBakery #LogoGuidelines",
+    likes: 1850,
+  };
+
+  const hamasahOtherItems: GalleryItem[] = [
+    {
+      id: "02",
+      image: brand.assets.yellowBg || brand.assets.dark,
+      title: "Kemasan Box & Paper Bag Roti Fresh",
+      sub: "PACKAGING & BAKERY MERCH",
+      desc: "Desain kemasan box roti hangat dan kantong kertas kraft ramah lingkungan beraksen warna Bakery Sun Yellow dan karakter roti senyum.",
+      specs: "Kraft Paper 200gsm • Eco Ink Print • Bakery Packaging",
+      hashtags: "#HamasahBakery #PackagingRoti #BakeryBox #FreshOven",
+      likes: 1420,
+    },
+    {
+      id: "03",
+      image: brand.assets.creamBg || brand.assets.dark,
+      title: "Seragam & Celemek Baker Hamasah",
+      sub: "STORE CREW UNIFORM",
+      desc: "Celemek dan topi baker katun cokelat hangat dengan bordir logo warna emas untuk keceriaan & profesionalitas tim toko.",
+      specs: "Cotton Apron • Gold Embroidery • Baker Uniform",
+      hashtags: "#HamasahBakery #BakerUniform #TeamHamasah #FreshBaked",
+      likes: 1380,
+    },
+    {
+      id: "04",
+      image: brand.assets.coralBg || brand.assets.dark,
+      title: "Store Signage & Neon Light Outlet",
+      sub: "OUTSIDE STORE & INTERIOR",
+      desc: "Desain neon signage dan papan outlet hangat dengan paduan latar cokelat dan aksen coral pink untuk menarik perhatian pelanggan.",
+      specs: "Warm Acrylic Signage • LED Neon Glow • Outdoor Storefront",
+      hashtags: "#HamasahBakery #StoreSignage #OutletBakery #BakeryInterior",
+      likes: 1650,
+    },
+    {
+      id: "05",
+      image: brand.assets.dark,
+      title: "Stiker Sealing & Label Produk Special",
+      sub: "PRODUCT LABEL & SEAL",
+      desc: "Stiker perekat kemasan roti anti-bocor dengan stempel penjamin kualitas roti segar hangat buatan hari ini.",
+      specs: "Vellum Sticker • Gold Foil Accent • Food Grade Label",
+      hashtags: "#HamasahBakery #LabelRoti #SealerSticker #FreshBakedToday",
+      likes: 1790,
+    },
+  ];
+
+  const featuredItem = isHamasah ? hamasahBoardItem : isHaramain ? haramainKaosItem : kaosItem;
+  const galleryItems = isHamasah ? hamasahOtherItems : isHaramain ? haramainOtherItems : otherItems;
   const allGalleryItems: GalleryItem[] = [featuredItem, ...galleryItems];
 
   // Preload all images for zero-delay instant modal loading
@@ -213,7 +268,9 @@ const BrandGallerySection = () => {
         </h2>
         
         <p className="text-white/80 font-modernist text-xs md:text-base max-w-2xl mx-auto leading-relaxed px-4">
-            {isHaramain
+            {isHamasah
+              ? "Eksplorasi penerapan identitas visual Hamasah Bakery pada papan petunjuk brand, kemasan roti fresh, seragam baker, stiker produk, dan outlet signage."
+              : isHaramain
               ? "Eksplorasi penerapan identitas visual Haramain Capture pada media dokumentasi perjalanan umrah, ziarah, publikasi digital, dan materi layanan jamaah."
               : "Eksplorasi penerapan identitas visual Markaz Fiqih pada berbagai media merch apparel, totebag, jurnal keilmuan, pembatas buku, dan banner branding."}
         </p>
@@ -392,12 +449,12 @@ const BrandGallerySection = () => {
               <div className="p-4 border-b border-white/10 flex items-center justify-between bg-black/20">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full overflow-hidden border border-brand-gold/40 flex-shrink-0 bg-brand-burgundy p-0.5 shadow-md">
-                    <img src={isHaramain ? brand.assets.iconWhite : profileAvatar} alt={`${brand.name} profile`} className="w-full h-full object-cover rounded-full" />
+                    <img src={isHamasah ? brand.assets.iconWhite : isHaramain ? brand.assets.iconWhite : profileAvatar} alt={`${brand.name} profile`} className="w-full h-full object-cover rounded-full" />
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5">
                       <span className="font-modernist font-bold text-sm text-white">{brand.handle.replace("@", "")}</span>
-                      <span className="w-3.5 h-3.5 rounded-full bg-brand-gold-light text-brand-burgundy text-[9px] font-bold flex items-center justify-center">âœ“</span>
+                      <span className="w-3.5 h-3.5 rounded-full bg-brand-gold-light text-brand-burgundy text-[9px] font-bold flex items-center justify-center">✓</span>
                     </div>
                     <span className="text-[10px] text-white/50 font-modernist uppercase tracking-wider block">
                       {currentModalItem.sub}
@@ -440,10 +497,10 @@ const BrandGallerySection = () => {
                 <div className="flex gap-2 items-center flex-wrap">
                   <span className="text-[10px] font-bold text-white/50 uppercase tracking-widest mr-1">WARNA:</span>
                   <span className="px-2.5 py-1 rounded-lg bg-black/40 border border-white/15 text-[11px] font-bold flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-brand-red"></span> {isHaramain ? "Hijau #9AD12A" : "Merah #AB2130"}
+                    <span className="w-2.5 h-2.5 rounded-full bg-brand-red"></span> {isHamasah ? "Sun Yellow #FFD21C" : isHaramain ? "Hijau #9AD12A" : "Merah #AB2130"}
                   </span>
                   <span className="px-2.5 py-1 rounded-lg bg-black/40 border border-white/15 text-[11px] font-bold flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#CC9933]"></span> Emas #CC9933
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#CC9933]"></span> {isHamasah ? "Chocolate #5B3715" : "Emas #CC9933"}
                   </span>
                 </div>
 
@@ -490,7 +547,7 @@ const BrandGallerySection = () => {
                     {(currentModalItem.likes + (isLiked ? 1 : 0)).toLocaleString("id-ID")} menyukai ini
                   </span>
                   <span className="text-[9px] text-white/40 uppercase tracking-widest block mt-0.5 font-bold">
-                    MARKAZ FIQIH â€¢ OFFICIAL BRAND GUIDELINE 2026
+                    {brand.name.toUpperCase()} • OFFICIAL BRAND GUIDELINE 2026
                   </span>
                 </div>
               </div>
