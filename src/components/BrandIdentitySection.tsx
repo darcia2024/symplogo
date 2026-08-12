@@ -5,6 +5,18 @@ import { useBrand } from "@/lib/brand";
 const BrandIdentitySection = () => {
   const [activeTab, setActiveTab] = useState<"dark" | "light">("light");
   const brand = useBrand();
+  const isHaramain = brand.slug === "haramaincapture";
+  const isHamasah = brand.slug === "hamasahbakery";
+
+  const essenceTitle = isHamasah ? "Rumah & Roti Senyum" : "Inti Simbol";
+  const essenceDesc = isHamasah
+    ? "Penyatuan kehangatan rumah bakery dan karakter roti tawar tersenyum (Toast Smile) dengan warna keemasan yang manis & lezat."
+    : "Penyatuan simbol utama & logotype dengan aksen warna primer yang kuat.";
+
+  const visionTitle = isHamasah ? "Kehangatan & Ceria" : isHaramain ? "Visi Dokumentasi" : "Visi Keilmuan";
+  const visionDesc = isHamasah
+    ? "Identitas visual yang ramah, manis, dan ceria, menghadirkan kehangatan roti fresh dari oven bagi setiap pelanggan."
+    : "Identitas visual yang kokoh, profesional, mudah dikenali, dan relevan di berbagai media.";
 
   return (
     <section id="brand-identity" className="relative min-h-screen w-full bg-brand-burgundy text-white py-16 md:py-24 px-6 md:px-12 lg:px-20 overflow-hidden font-modernist">
@@ -118,7 +130,13 @@ const BrandIdentitySection = () => {
 
                   {/* Logo Image */}
                   <img 
-                    src={activeTab === "dark" ? brand.assets.dark : brand.assets.primary} 
+                    src={
+                      activeTab === "dark"
+                        ? brand.assets.dark
+                        : isHamasah
+                        ? brand.assets.horizontalColor
+                        : brand.assets.primary
+                    } 
                     alt={`Logo ${brand.name} Master Showcase`} 
                     className="w-full max-w-[240px] sm:max-w-[340px] max-h-[360px] h-auto object-contain drop-shadow-2xl transition-transform duration-500 group-hover/grid:scale-105 relative z-10"
                   />
@@ -152,16 +170,16 @@ const BrandIdentitySection = () => {
                 </div>
                 <div>
                   <span className="text-[8px] sm:text-[10px] font-modernist font-bold text-brand-gold-light uppercase tracking-wider block">Essence</span>
-                  <h3 className="text-xs sm:text-xl font-modernist font-bold text-white tracking-tight leading-tight">Inti Simbol</h3>
+                  <h3 className="text-xs sm:text-xl font-modernist font-bold text-white tracking-tight leading-tight">{essenceTitle}</h3>
                 </div>
               </div>
               <p className="text-white/80 text-[10px] sm:text-sm font-modernist leading-relaxed line-clamp-4 sm:line-clamp-none">
-                Penyatuan <strong className="text-white">simbol utama</strong> & <strong className="text-white">logotype</strong> dengan <strong className="text-brand-gold-light">aksen warna primer</strong> yang kuat.
+                {essenceDesc}
               </p>
             </div>
           </div>
 
-          {/* Card 2: Vision (Visi Keilmuan) */}
+          {/* Card 2: Vision (Visi Brand / Visi Keilmuan) */}
           <div className="p-3 sm:p-6 rounded-xl sm:rounded-3xl bg-black/30 border border-white/15 backdrop-blur-md shadow-xl hover:border-brand-gold/50 transition-all duration-300 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-2 mb-2 sm:mb-3">
@@ -170,11 +188,11 @@ const BrandIdentitySection = () => {
                 </div>
                 <div>
                   <span className="text-[8px] sm:text-[10px] font-modernist font-bold text-brand-gold-light uppercase tracking-wider block">Vision</span>
-                  <h3 className="text-xs sm:text-xl font-modernist font-bold text-white tracking-tight leading-tight">Visi Keilmuan</h3>
+                  <h3 className="text-xs sm:text-xl font-modernist font-bold text-white tracking-tight leading-tight">{visionTitle}</h3>
                 </div>
               </div>
               <p className="text-white/80 text-[10px] sm:text-sm font-modernist leading-relaxed line-clamp-4 sm:line-clamp-none">
-                Identitas visual yang kokoh, profesional, mudah dikenali, dan relevan di berbagai media.
+                {visionDesc}
               </p>
             </div>
           </div>
@@ -200,9 +218,21 @@ const BrandIdentitySection = () => {
         <span className="text-brand-gold-light font-bold">01 / 10</span>
       </div>
 
+      {/* --- SECTION DIVIDER / LOGO QUOTE SEAMLESS INTEGRATION --- */}
+      <div className="mt-20 max-w-5xl mx-auto pt-16 border-t border-white/10 text-center font-modernist">
+        <div className="inline-flex items-center justify-center p-3 rounded-full bg-brand-gold/10 border border-brand-gold/30 text-brand-gold-light mb-6">
+          <Quote className="w-6 h-6" />
+        </div>
+        <blockquote className="text-xl sm:text-2xl md:text-3xl font-modernist font-extrabold text-white leading-relaxed max-w-3xl mx-auto">
+          "{brand.tagline}"
+        </blockquote>
+        <div className="mt-6 text-xs sm:text-sm font-modernist text-white/70 max-w-2xl mx-auto leading-relaxed">
+          {brand.manifesto}
+        </div>
+      </div>
+
     </section>
   );
 };
 
 export default BrandIdentitySection;
-
