@@ -1,9 +1,11 @@
-import { Aperture, Camera, Compass, Home } from "lucide-react";
+import { Aperture, Camera, Compass, Home, Sparkles, Utensils } from "lucide-react";
 import { useBrand } from "@/lib/brand";
 
 const PhilosophySection = () => {
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
+  const isHamasah = brand.slug === "hamasahbakery";
+
   const pillars = isHaramain
     ? [
         {
@@ -20,6 +22,24 @@ const PhilosophySection = () => {
           title: "Dua Menara Penjaga",
           desc: "Dua menara di sisi atas memberi kesan simetri, arah, dan suasana tanah suci yang menjadi latar emosional perjalanan umrah dan ziarah.",
           icon: <Camera className="w-5 h-5 md:w-6 md:h-6" />,
+        },
+      ]
+    : isHamasah
+    ? [
+        {
+          title: "Rumah Bakery & Kehangatan",
+          desc: "Siluet rumah toko melambangkan tempat yang hangat, ramah, dan dipanggangnya roti-roti hangat berkualitas setiap hari.",
+          icon: <Home className="w-5 h-5 md:w-6 md:h-6" />,
+        },
+        {
+          title: "Roti Senyum & Keceriaan",
+          desc: "Karakter roti slice dengan senyuman lembut merepresentasikan kelezatan manis dan kebahagiaan bagi setiap pelanggan.",
+          icon: <Utensils className="w-5 h-5 md:w-6 md:h-6" />,
+        },
+        {
+          title: "Bulir Gandum & Keemasan",
+          desc: "Sentuhan gandum alami dan aksen warna keemasan menegaskan kualitas bahan pilihan terbaik yang diolah penuh keahlian.",
+          icon: <Sparkles className="w-5 h-5 md:w-6 md:h-6" />,
         },
       ]
     : [
@@ -55,7 +75,9 @@ const PhilosophySection = () => {
         
         {/* Subtitle */}
         <p className="text-muted-foreground font-modernist font-normal text-xs md:text-base max-w-2xl mx-auto leading-relaxed">
-          {isHaramain
+          {isHamasah
+            ? "Memadukan karakter rumah toko, roti senyum tersenyum (Toast Smile), dan bulir gandum dalam satu kesatuan visual yang hangat, manis, dan ramah."
+            : isHaramain
             ? "Memadukan kubah, gerbang masjid, menara, dan aperture kamera sebagai simbol layanan dokumentasi umrah, ziarah, dan perjalanan ibadah."
             : "Memadukan simbol utama dan logotype dalam satu kesatuan visual yang utuh dengan warna primer sebagai pusat perhatian."}
         </p>
@@ -81,7 +103,7 @@ const PhilosophySection = () => {
                 <div className="absolute inset-0 bg-brand-gold/15 blur-[60px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
                 
                 <img 
-                    src={brand.assets.primary} 
+                    src={isHamasah ? brand.assets.horizontalColor : brand.assets.primary} 
                     alt={`Simbol ${brand.name}`} 
                     className="relative w-48 md:w-72 lg:w-80 max-h-[420px] h-auto object-contain drop-shadow-xl transition-transform duration-500 group-hover:scale-105 z-10"
                 />
@@ -92,10 +114,12 @@ const PhilosophySection = () => {
         <div className="space-y-6 md:space-y-8 font-modernist">
             <div>
                 <h3 className="font-modernist font-bold text-2xl md:text-3xl text-brand-burgundy mb-2">
-                    {isHaramain ? "Harmoni Ibadah & Dokumentasi" : "Harmoni Wadah & Ilmu"}
+                    {isHamasah ? "Harmoni Rasa & Kehangatan" : isHaramain ? "Harmoni Ibadah & Dokumentasi" : "Harmoni Wadah & Ilmu"}
                 </h3>
                 <p className="text-muted-foreground font-modernist leading-relaxed text-xs md:text-sm">
-                    {isHaramain
+                    {isHamasah
+                      ? "Logo Hamasah Bakery memadukan siluet rumah toko yang hangat dan karakter roti tawar tersenyum (Toast Smile) dengan warna keemasan yang manis. Komposisi ini menyampaikan bahwa kelezatan roti fresh dari oven membawa keceriaan dan kehangatan bagi setiap keluarga."
+                      : isHaramain
                       ? "Logo Haramain Capture dibangun dari pertemuan dua dunia: perjalanan ibadah sebagai sumber makna, dan kamera sebagai alat merawat kenangan jamaah. Lengkung hijau menghadirkan kesan kubah dan gerbang, sementara bentuk shutter di tengah menegaskan layanan dokumentasi yang fokus namun tetap menjaga adab."
                       : "Pertemuan garis buku pada bagian atas membentuk kesan dua halaman yang terbuka sekaligus menyerupai atap rumah. Komposisi ini menunjukkan bahwa ilmu dan tempat belajar tidak berdiri sendiri: ilmu membutuhkan wadah yang baik, dan lembaga bermakna bila diisi ilmu yang bermanfaat."}
                 </p>
@@ -137,4 +161,3 @@ const PhilosophySection = () => {
 };
 
 export default PhilosophySection;
-

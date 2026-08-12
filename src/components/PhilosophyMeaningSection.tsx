@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Aperture, Camera, Compass, Home, Target, Bookmark, Sparkles, CheckCircle2 } from "lucide-react";
+import { Aperture, Camera, Compass, Home, Target, Bookmark, Sparkles, CheckCircle2, Utensils } from "lucide-react";
 import { useBrand } from "@/lib/brand";
 
 const PhilosophyMeaningSection = () => {
@@ -7,6 +7,7 @@ const PhilosophyMeaningSection = () => {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
+  const isHamasah = brand.slug === "hamasahbakery";
 
   const pillars = isHaramain
     ? [
@@ -40,6 +41,41 @@ const PhilosophyMeaningSection = () => {
           title: "Hijau Perjalanan",
           concept: "Aksen Hijau (Tenang & Bertumbuh)",
           quote: "Warna hijau memberi kesan segar, damai, dan hidup. Pada konteks layanan dokumentasi umrah, hijau menjadi pengikat antara perjalanan spiritual, harapan, dan kenangan jamaah yang ingin dijaga.",
+          tag: "Dimensi Warna",
+        },
+      ]
+    : isHamasah
+    ? [
+        {
+          id: 0,
+          icon: <Home className="w-5 h-5 text-brand-gold-light" />,
+          title: "Rumah Toko Bakery",
+          concept: "Wadah Hangat & Ramah",
+          quote: "Siluet rumah toko melambangkan tempat yang hangat, ramah, dan terbuka, tempat dipanggangnya roti-roti segar berkualitas setiap hari.",
+          tag: "Dimensi Wadah",
+        },
+        {
+          id: 1,
+          icon: <Utensils className="w-5 h-5 text-brand-gold-light" />,
+          title: "Roti Senyum Tersenyum",
+          concept: "Toast Smile (Keceriaan)",
+          quote: "Karakter roti slice dengan senyuman lembut merepresentasikan kelezatan manis dan kebahagiaan yang dihadirkan di setiap gigitan.",
+          tag: "Dimensi Rasa",
+        },
+        {
+          id: 2,
+          icon: <Sparkles className="w-5 h-5 text-brand-gold-light" />,
+          title: "Bulir Gandum Alami",
+          concept: "Bahan Alami Pilihan",
+          quote: "Aksen bulir gandum menegaskan komitmen penggunaan bahan alami segar pilihan yang diolah penuh keahlian.",
+          tag: "Dimensi Bahan",
+        },
+        {
+          id: 3,
+          icon: <Compass className="w-5 h-5 text-brand-gold-light" />,
+          title: "Aksen Keemasan",
+          concept: "Sun Yellow & Amber",
+          quote: "Paduan warna kuning keemasan dan cokelat hangat memancarkan kehangatan roti panggang matang sempurna.",
           tag: "Dimensi Warna",
         },
       ]
@@ -109,16 +145,18 @@ const PhilosophyMeaningSection = () => {
         
         {/* Subtle Background Ghost Text */}
         <h1 className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center font-modernist font-bold text-[12vw] md:text-[9vw] leading-none tracking-tight select-none pointer-events-none text-white/[0.03] uppercase">
-            {isHaramain ? "CAPTURE" : "TAKHASSUS"}
+            {isHamasah ? "HAMASAH" : isHaramain ? "CAPTURE" : "TAKHASSUS"}
         </h1>
 
         {/* Title Stack */}
         <div className="text-center relative z-10 max-w-3xl px-4 mb-8 md:mb-10">
             <h2 className="font-modernist font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight tracking-tight drop-shadow-xl">
-                {isHaramain ? "Haramain" : "Markaz"} <span className="text-brand-cream">{isHaramain ? "Capture" : "Fiqih"}</span>
+                {isHamasah ? "Hamasah" : isHaramain ? "Haramain" : "Markaz"} <span className="text-brand-cream">{isHamasah ? "Bakery" : isHaramain ? "Capture" : "Fiqih"}</span>
             </h2>
             <p className="text-white/80 font-modernist text-xs md:text-base mt-3 max-w-xl mx-auto leading-relaxed">
-                {isHaramain
+                {isHamasah
+                  ? "Kehangatan roti fresh dari oven yang dipanggang penuh semangat untuk menghadirkan senyuman bagi setiap pelanggan."
+                  : isHaramain
                   ? "Menangkap perjalanan umrah, ziarah, dan ibadah lain melalui bahasa visual yang tenang, fokus, dan penuh penghormatan."
                   : "Rumah tempat bertumbuhnya ilmu yang terarah, mendalam, dan dekat dengan kehidupan."}
             </p>
