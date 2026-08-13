@@ -11,6 +11,13 @@ import haramainCapture1 from "@/assets/haramain-capture-1.png";
 import haramainLanyard from "@/assets/haramain-lanyard.png";
 import haramainTopi from "@/assets/haramain-topi.png";
 import haramainVest from "@/assets/haramain-vest.png";
+
+import hamasahMockupBox from "@/assets/hamasah-mockup-box.png";
+import hamasahMockupShop from "@/assets/hamasah-mockup-shop.png";
+import hamasahMockupAppron from "@/assets/hamasah-mockup-appron.png";
+import hamasahMockupCup from "@/assets/hamasah-mockup-cup.png";
+import hamasahMockupTopi from "@/assets/hamasah-mockup-topi.png";
+
 import { useBrand } from "@/lib/brand";
 
 interface GalleryItem {
@@ -142,61 +149,61 @@ const BrandGallerySection = () => {
     },
   ];
 
-  const hamasahBoardItem: GalleryItem = {
+  const hamasahBoxItem: GalleryItem = {
     id: "01",
-    image: brand.assets.board || brand.assets.dark,
-    title: "Hamasah Bakery Master Guidelines Board",
-    sub: "BRAND SYSTEM & DESIGN BOARD",
-    desc: "Penerapan identitas visual Hamasah Bakery secara utuh menyajikan variasi resmi logo, sistem warna (Bakery Sun Yellow, Golden Amber, Dark Chocolate, Coral Pink), serta aturan ruang aman.",
-    specs: "Master Vector Board • Color Swatches • Official Variations",
-    hashtags: "#HamasahBakery #BrandIdentity #FreshBakery #LogoGuidelines",
-    likes: 1850,
+    image: hamasahMockupBox,
+    title: "Kemasan Box Roti Fresh Hamasah",
+    sub: "OFFICIAL BAKERY PACKAGING",
+    desc: "Penerapan identitas visual Hamasah Bakery pada kemasan dus roti fresh oven dengan kombinasi warna hangat Sun Yellow & Chocolate Brown.",
+    specs: "Food Grade Cardboard 350gsm • Eco Flexo Printing • Bakery Box",
+    hashtags: "#HamasahBakery #BoxBakery #PackagingRoti #FreshFromOven",
+    likes: 1920,
   };
 
   const hamasahOtherItems: GalleryItem[] = [
     {
       id: "02",
-      image: brand.assets.yellowBg || brand.assets.dark,
-      title: "Kemasan Box & Paper Bag Roti Fresh",
-      sub: "PACKAGING & BAKERY MERCH",
-      desc: "Desain kemasan box roti hangat dan kantong kertas kraft ramah lingkungan beraksen warna Bakery Sun Yellow dan karakter roti senyum.",
-      specs: "Kraft Paper 200gsm • Eco Ink Print • Bakery Packaging",
-      hashtags: "#HamasahBakery #PackagingRoti #BakeryBox #FreshOven",
-      likes: 1420,
+      image: hamasahMockupShop,
+      title: "Store Signage & Front Shop Outlet",
+      sub: "STOREFRONT & OUTDOOR SIGN",
+      desc: "Desain papan nama outlet toko Hamasah Bakery yang hangat, modern, dan menarik perhatian pelanggan dari kejauhan.",
+      specs: "Warm Acrylic Signage • Warm LED Glow • Storefront Identity",
+      hashtags: "#HamasahBakery #StoreSignage #OutletBakery #FrontShop",
+      likes: 1850,
     },
     {
       id: "03",
-      image: brand.assets.creamBg || brand.assets.dark,
-      title: "Seragam & Celemek Baker Hamasah",
-      sub: "STORE CREW UNIFORM",
-      desc: "Celemek dan topi baker katun cokelat hangat dengan bordir logo warna emas untuk keceriaan & profesionalitas tim toko.",
-      specs: "Cotton Apron • Gold Embroidery • Baker Uniform",
-      hashtags: "#HamasahBakery #BakerUniform #TeamHamasah #FreshBaked",
-      likes: 1380,
+      image: hamasahMockupAppron,
+      title: "Celemek Baker Official Hamasah",
+      sub: "BAKER CREW UNIFORM",
+      desc: "Apron seragam baker berbahan katun cokelat premium dengan sablon logo Hamasah Bakery untuk keceriaan tim toko.",
+      specs: "Heavy Canvas Cotton • Leather Strap • Gold Ink Print",
+      hashtags: "#HamasahBakery #ApronBaker #BakerUniform #TeamHamasah",
+      likes: 1740,
     },
     {
       id: "04",
-      image: brand.assets.coralBg || brand.assets.dark,
-      title: "Store Signage & Neon Light Outlet",
-      sub: "OUTSIDE STORE & INTERIOR",
-      desc: "Desain neon signage dan papan outlet hangat dengan paduan latar cokelat dan aksen coral pink untuk menarik perhatian pelanggan.",
-      specs: "Warm Acrylic Signage • LED Neon Glow • Outdoor Storefront",
-      hashtags: "#HamasahBakery #StoreSignage #OutletBakery #BakeryInterior",
-      likes: 1650,
+      image: hamasahMockupCup,
+      title: "Gelas Minuman & Paper Cup Hamasah",
+      sub: "BEVERAGE & COFFEE CUP",
+      desc: "Desain paper cup minuman kopi & artisan tea pendamping santap roti hangat dengan cetakan logo khas Hamasah Bakery.",
+      specs: "Double Wall Paper Cup 12oz • Heat Resistant • Food Grade",
+      hashtags: "#HamasahBakery #PaperCup #CoffeeAndBakery #BeveragePackaging",
+      likes: 1680,
     },
     {
       id: "05",
-      image: brand.assets.dark,
-      title: "Stiker Sealing & Label Produk Special",
-      sub: "PRODUCT LABEL & SEAL",
-      desc: "Stiker perekat kemasan roti anti-bocor dengan stempel penjamin kualitas roti segar hangat buatan hari ini.",
-      specs: "Vellum Sticker • Gold Foil Accent • Food Grade Label",
-      hashtags: "#HamasahBakery #LabelRoti #SealerSticker #FreshBakedToday",
-      likes: 1790,
+      image: hamasahMockupTopi,
+      title: "Topi Baker & Crew Apparel",
+      sub: "OFFICIAL CREW CAP",
+      desc: "Topi seragam baker dan staff toko beremblem logo Hamasah Bakery untuk kenyamanan & higienitas kerja.",
+      specs: "Cotton Twill Cap • Embroidery Logo Badge • Adjustable Strap",
+      hashtags: "#HamasahBakery #TopiBaker #CrewApparel #HygieneBaker",
+      likes: 1610,
     },
   ];
 
-  const featuredItem = isHamasah ? hamasahBoardItem : isHaramain ? haramainKaosItem : kaosItem;
+  const featuredItem = isHamasah ? hamasahBoxItem : isHaramain ? haramainKaosItem : kaosItem;
   const galleryItems = isHamasah ? hamasahOtherItems : isHaramain ? haramainOtherItems : otherItems;
   const allGalleryItems: GalleryItem[] = [featuredItem, ...galleryItems];
 
@@ -269,7 +276,7 @@ const BrandGallerySection = () => {
         
         <p className="text-white/80 font-modernist text-xs md:text-base max-w-2xl mx-auto leading-relaxed px-4">
             {isHamasah
-              ? "Eksplorasi penerapan identitas visual Hamasah Bakery pada papan petunjuk brand, kemasan roti fresh, seragam baker, stiker produk, dan outlet signage."
+              ? "Eksplorasi penerapan identitas visual Hamasah Bakery pada dus kemasan roti, celemek baker, paper cup minuman, topi seragam, dan papan nama toko."
               : isHaramain
               ? "Eksplorasi penerapan identitas visual Haramain Capture pada media dokumentasi perjalanan umrah, ziarah, publikasi digital, dan materi layanan jamaah."
               : "Eksplorasi penerapan identitas visual Markaz Fiqih pada berbagai media merch apparel, totebag, jurnal keilmuan, pembatas buku, dan banner branding."}
@@ -279,12 +286,12 @@ const BrandGallerySection = () => {
       {/* --- EDITORIAL SPLIT GALLERY LAYOUT --- */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-3 md:gap-4 max-w-7xl mx-auto font-modernist">
 
-        {/* LEFT COLUMN: HERO FEATURED KAOS MOCKUP (BIG LEFT CARD) */}
+        {/* LEFT COLUMN: HERO FEATURED MOCKUP (BIG LEFT CARD) */}
         <div
           onClick={() => setActiveModalIndex(0)}
           className="lg:col-span-5 group relative overflow-hidden rounded-3xl border border-white/20 bg-black/30 hover:border-brand-gold transition-all duration-300 shadow-2xl cursor-pointer flex flex-col justify-end min-h-[440px] lg:min-h-[580px]"
         >
-          {/* FULL-FIT KAOS IMAGE */}
+          {/* FULL-FIT IMAGE */}
           <img 
             src={featuredItem.image} 
             alt={featuredItem.title}
@@ -298,7 +305,7 @@ const BrandGallerySection = () => {
           <div className="absolute top-4 left-4 bg-black/60 border border-white/20 backdrop-blur-md px-3 py-1 rounded-full z-10 flex items-center gap-1.5">
             <Sparkles className="w-3 h-3 text-brand-gold-light" />
             <span className="text-[10px] font-modernist font-bold text-brand-gold-light tracking-widest">
-              HERO APPAREL
+              {isHamasah ? "HERO PACKAGING" : "HERO APPAREL"}
             </span>
           </div>
 
@@ -324,7 +331,7 @@ const BrandGallerySection = () => {
           </div>
         </div>
 
-        {/* RIGHT COLUMN: 2x2 GRID OF REMAINING 4 ITEMS */}
+        {/* RIGHT COLUMN: 2x2 GRID OF REMAINING 4 MOCKUP ITEMS */}
         <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
           {galleryItems.map((item, idx) => (
             <div
@@ -500,7 +507,7 @@ const BrandGallerySection = () => {
                     <span className="w-2.5 h-2.5 rounded-full bg-brand-red"></span> {isHamasah ? "Sun Yellow #FFD21C" : isHaramain ? "Hijau #9AD12A" : "Merah #AB2130"}
                   </span>
                   <span className="px-2.5 py-1 rounded-lg bg-black/40 border border-white/15 text-[11px] font-bold flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#CC9933]"></span> {isHamasah ? "Chocolate #5B3715" : "Emas #CC9933"}
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#5B3715]"></span> {isHamasah ? "Chocolate #5B3715" : "Emas #CC9933"}
                   </span>
                 </div>
 
