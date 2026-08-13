@@ -16,9 +16,9 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index brand={brands.hamasahbakery} />} />
-          <Route path="/hamasahbakery" element={<Index brand={brands.hamasahbakery} />} />
+          <Route path="/" element={<Index brand={brands.hamasahlaundry} />} />
           <Route path="/hamasahlaundry" element={<Index brand={brands.hamasahlaundry} />} />
+          <Route path="/hamasahbakery" element={<Index brand={brands.hamasahbakery} />} />
           <Route path="/markazfiqih" element={<Index brand={brands.markazfiqih} />} />
           <Route path="/haramaincapture" element={<Index brand={brands.haramaincapture} />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

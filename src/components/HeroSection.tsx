@@ -4,7 +4,9 @@ import { useBrand } from "@/lib/brand";
 const HeroSection = () => {
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
-  const isHamasah = brand.slug === "hamasahbakery";
+  const isHamasahBakery = brand.slug === "hamasahbakery";
+  const isHamasahLaundry = brand.slug === "hamasahlaundry";
+  const isHamasah = isHamasahBakery || isHamasahLaundry;
 
   const scrollToNext = () => {
     const nextSection = document.getElementById("brand-identity");
@@ -93,8 +95,10 @@ const HeroSection = () => {
               src={brand.assets.dark} 
               alt={`Logo ${brand.name}.`} 
               className={`relative z-10 h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)] drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-500 ease-out ${
-                isHamasah
-                  ? "w-[100px] xs:w-[130px] sm:w-[170px] md:w-[210px] lg:w-[240px] max-h-[28vh]"
+                isHamasahLaundry
+                  ? "w-[150px] xs:w-[190px] sm:w-[260px] md:w-[320px] lg:w-[360px] max-h-[40vh]"
+                  : isHamasahBakery
+                  ? "w-[220px] xs:w-[270px] sm:w-[380px] md:w-[460px] lg:w-[540px] max-h-[58vh]"
                   : isHaramain
                   ? "w-[205px] xs:w-[255px] sm:w-[350px] md:w-[430px] lg:w-[505px] max-h-[54vh]"
                   : "w-[240px] xs:w-[300px] sm:w-[420px] md:w-[520px] lg:w-[620px] max-h-[64vh]"

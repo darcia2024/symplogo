@@ -18,6 +18,12 @@ import hamasahMockupAppron from "@/assets/hamasah-mockup-appron.png";
 import hamasahMockupCup from "@/assets/hamasah-mockup-cup.png";
 import hamasahMockupTopi from "@/assets/hamasah-mockup-topi.png";
 
+import hamasahLaundryMockupRuko from "@/assets/hamasah-laundry-mockup-ruko.png";
+import hamasahLaundryMockupPlastik from "@/assets/hamasah-laundry-mockup-plastik.png";
+import hamasahLaundryMockupPegawai from "@/assets/hamasah-laundry-mockup-pegawai.png";
+import hamasahLaundryMockupSabun from "@/assets/hamasah-laundry-mockup-sabun.png";
+import hamasahLaundryMockupKartunama from "@/assets/hamasah-laundry-mockup-kartunama.png";
+
 import { useBrand } from "@/lib/brand";
 
 interface GalleryItem {
@@ -205,61 +211,61 @@ const BrandGallerySection = () => {
     },
   ];
 
-  const hamasahLaundryBoxItem: GalleryItem = {
+  const hamasahLaundryRukoItem: GalleryItem = {
     id: "01",
-    image: hamasahMockupAppron,
-    title: "Seragam Celemek & Apron Laundry Crew",
-    sub: "OFFICIAL LAUNDRY UNIFORM",
-    desc: "Penerapan logo Hamasah Laundry pada apron seragam petugas pencucian berbahan kanvas premium dengan cetakan warna keemasan & cokelat hangat.",
-    specs: "Heavy Cotton Apron • Water Repellent • Embroidery & Gold Print",
-    hashtags: "#HamasahLaundry #LaundryUniform #ApronCrew #HygieneClean",
-    likes: 1920,
+    image: hamasahLaundryMockupRuko,
+    title: "Storefront Signage & Ruko Hamasah Laundry",
+    sub: "OFFICIAL LAUNDRY OUTLET",
+    desc: "Desain plang papan toko dan signage neon box outlet Hamasah Laundry yang modern, bersih, dan terang untuk kenyamanan pelanggan.",
+    specs: "Warm Acrylic Box • Ultra Bright LED Glow • Outdoor Storefront",
+    hashtags: "#HamasahLaundry #OutletLaundry #StorefrontRuko #CleanService",
+    likes: 1950,
   };
 
   const hamasahLaundryOtherItems: GalleryItem[] = [
     {
       id: "02",
-      image: hamasahMockupShop,
-      title: "Papan Nama Storefront & Outlet Laundry",
-      sub: "OUTLET SIGN & NEON LIGHT",
-      desc: "Desain plang outlet dan neon box Hamasah Laundry yang bersih, terang, dan mudah dikenali pelanggan dari jalan utama.",
-      specs: "Warm Acrylic Box • Ultra Bright LED • Outdoor Signage",
-      hashtags: "#HamasahLaundry #OutletLaundry #Storefront #CleanService",
-      likes: 1850,
+      image: hamasahLaundryMockupPlastik,
+      title: "Kantong Plastik Packaging Laundry Bag",
+      sub: "CLEAN PACKAGING & BAG",
+      desc: "Desain kantong plastik pembungkus pakaian bersih lipat dan laundry bag higienis berlogo khas Hamasah Laundry.",
+      specs: "Eco PE Plastic • Flexo Print • Hygiene Sealed Packaging",
+      hashtags: "#HamasahLaundry #PlastikLaundry #CleanPackaging #HygienePacked",
+      likes: 1880,
     },
     {
       id: "03",
-      image: hamasahMockupBox,
-      title: "Tas Laundry Bag & Packaging Clean Apparel",
-      sub: "PACKAGING & LAUNDRY BAG",
-      desc: "Desain kantong laundry ramah lingkungan dan dus kemasan pakaian bersih lipat dengan cetakan logo khas Hamasah Laundry.",
-      specs: "Spunbond Laundry Bag 80gsm • Eco Flexo Print • Clean Pack",
-      hashtags: "#HamasahLaundry #LaundryBag #PackagingPakaian #CleanFresh",
-      likes: 1740,
+      image: hamasahLaundryMockupPegawai,
+      title: "Seragam Celemek & Apron Pegawai Laundry",
+      sub: "CREW UNIFORM & APPAREL",
+      desc: "Apron seragam petugas pencucian berbahan katun cokelat premium berlogo emas Hamasah Laundry untuk kesan bersih dan profesional.",
+      specs: "Heavy Canvas Cotton • Water Repellent • Embroidery Logo",
+      hashtags: "#HamasahLaundry #SeragamPegawai #ApronLaundry #TeamHamasah",
+      likes: 1790,
     },
     {
       id: "04",
-      image: hamasahMockupCup,
-      title: "Kemasan Parfum & Softener Laundry",
-      sub: "FRAGRANCE & DETERGENT BOTTLE",
-      desc: "Kemasan cairan pembersih, softener, dan parfum pakaian wangi tahan lama berbahan botol ramah lingkungan khas Hamasah Laundry.",
-      specs: "Eco Bottle 250ml • Waterproof Label • Fresh Aroma",
-      hashtags: "#HamasahLaundry #SoftenerPakaian #ParfumLaundry #FragranceFresh",
-      likes: 1680,
+      image: hamasahLaundryMockupSabun,
+      title: "Kemasan Sabun & Deterjen Hamasah Laundry",
+      sub: "DETERGENT & SOFTENER BOTTLE",
+      desc: "Kemasan botol cairan pembersih, detergent, softener, dan parfum pakaian wangi harum tahan lama khas Hamasah Laundry.",
+      specs: "Eco HDPE Bottle 1000ml • Waterproof Label • Fresh Fragrance",
+      hashtags: "#HamasahLaundry #SabunLaundry #DeterjenHarum #ParfumLaundry",
+      likes: 1720,
     },
     {
       id: "05",
-      image: hamasahMockupTopi,
-      title: "Topi Seragam & Apparel Staff Laundry",
-      sub: "CREW CAP & APPAREL",
-      desc: "Topi seragam crew laundry dengan Emblem logo Hamasah Laundry untuk menjaga kebersihan & penampilan profesional saat bertugas.",
-      specs: "Cotton Twill Cap • Embroidery Logo Badge • Adjustable Strap",
-      hashtags: "#HamasahLaundry #TopiStaff #CrewApparel #CleanService",
-      likes: 1610,
+      image: hamasahLaundryMockupKartunama,
+      title: "Kartu Nama & Stationeries Hamasah Laundry",
+      sub: "BUSINESS CARD & STATIONERY",
+      desc: "Kartu nama bisnis dan nota transaksi resmi Hamasah Laundry dengan kombinasi warna cokelat hangat dan aksen keemasan.",
+      specs: "Art Card 350gsm • Soft Touch Lamination • Gold Foil Accent",
+      hashtags: "#HamasahLaundry #KartuNama #BusinessCard #StationeryBranding",
+      likes: 1650,
     },
   ];
 
-  const featuredItem = isHamasahLaundry ? hamasahLaundryBoxItem : isHamasahBakery ? hamasahBoxItem : isHaramain ? haramainKaosItem : kaosItem;
+  const featuredItem = isHamasahLaundry ? hamasahLaundryRukoItem : isHamasahBakery ? hamasahBoxItem : isHaramain ? haramainKaosItem : kaosItem;
   const galleryItems = isHamasahLaundry ? hamasahLaundryOtherItems : isHamasahBakery ? hamasahOtherItems : isHaramain ? haramainOtherItems : otherItems;
   const allGalleryItems: GalleryItem[] = [featuredItem, ...galleryItems];
 
@@ -332,7 +338,7 @@ const BrandGallerySection = () => {
         
         <p className="text-white/80 font-modernist text-xs md:text-base max-w-2xl mx-auto leading-relaxed px-4">
             {isHamasahLaundry
-              ? "Eksplorasi penerapan identitas visual Hamasah Laundry pada media celemek laundry, packaging tas pakaian, parfum softener, topi crew, dan papan nama outlet."
+              ? "Eksplorasi penerapan identitas visual Hamasah Laundry pada media plang ruko outlet, plastik packaging, seragam pegawai, botol sabun/deterjen, dan kartu nama."
               : isHamasahBakery
               ? "Eksplorasi penerapan identitas visual Hamasah Bakery pada dus kemasan roti, celemek baker, paper cup minuman, topi seragam, dan papan nama toko."
               : isHaramain
@@ -363,7 +369,7 @@ const BrandGallerySection = () => {
           <div className="absolute top-4 left-4 bg-black/60 border border-white/20 backdrop-blur-md px-3 py-1 rounded-full z-10 flex items-center gap-1.5">
             <Sparkles className="w-3 h-3 text-brand-gold-light" />
             <span className="text-[10px] font-modernist font-bold text-brand-gold-light tracking-widest">
-              {isHamasahLaundry ? "HERO UNIFORM" : isHamasahBakery ? "HERO PACKAGING" : "HERO APPAREL"}
+              {isHamasahLaundry ? "HERO STOREFRONT" : isHamasahBakery ? "HERO PACKAGING" : "HERO APPAREL"}
             </span>
           </div>
 
