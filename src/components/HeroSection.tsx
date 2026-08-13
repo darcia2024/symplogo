@@ -94,7 +94,7 @@ const HeroSection = () => {
               alt={`Logo ${brand.name}.`} 
               className={`relative z-10 h-auto object-contain drop-shadow-[0_12px_24px_rgba(0,0,0,0.7)] drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-500 ease-out ${
                 isHamasah
-                  ? "w-[220px] xs:w-[270px] sm:w-[380px] md:w-[460px] lg:w-[540px] max-h-[58vh]"
+                  ? "w-[170px] xs:w-[210px] sm:w-[280px] md:w-[340px] lg:w-[400px] max-h-[44vh]"
                   : isHaramain
                   ? "w-[205px] xs:w-[255px] sm:w-[350px] md:w-[430px] lg:w-[505px] max-h-[54vh]"
                   : "w-[240px] xs:w-[300px] sm:w-[420px] md:w-[520px] lg:w-[620px] max-h-[64vh]"

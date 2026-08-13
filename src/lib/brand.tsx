@@ -93,8 +93,8 @@ const hamasahAssets: BrandAssets = {
 };
 
 const hamasahLaundryAssets: BrandAssets = {
-  primary: logoHamasahLaundryFix2,
-  dark: logoHamasahLaundryFix2,
+  primary: logoHamasahLaundryPutih,
+  dark: logoHamasahLaundryPutih,
   horizontalWhite: logoHamasahLaundryPutih,
   horizontalColor: logoHamasahLaundryFix2,
   vertical: logoHamasahLaundryFix2,
