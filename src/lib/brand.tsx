@@ -134,7 +134,7 @@ export const brands: Record<BrandSlug, BrandConfig> = {
     tagline: "Kehangatan Roti Fresh dari Oven dengan Cita Rasa Lembut & Penuh Semangat",
     description:
       "Hamasah Bakery menghadirkan aneka roti dan pastry hangat berkualitas tinggi, dipanggang dengan penuh semangat dan bahan pilihan untuk menghadirkan senyuman di setiap gigitan.",
-    assetDownloadUrl: "https://drive.google.com/drive/folders/1dANLt2tRcRkbuzqva2ojJey56fGnEqH-?usp=sharing",
+    assetDownloadUrl: "https://drive.google.com/drive/folders/1ZI85y_-FndZSQNFsXlX-g63hE5uySDr_?usp=sharing",
     manifesto: (
       <>
         Secara keseluruhan, identitas visual Hamasah Bakery membawa <span className="text-brand-gold-light font-extrabold underline decoration-brand-gold/40 underline-offset-4 sm:underline-offset-8">tiga pesan utama</span>: <span className="text-brand-gold-light">rumah hangat</span> sebagai tempat dipanggangnya keceriaan, <span className="text-brand-gold-light">roti senyum</span> sebagai simbol kenikmatan lembut, dan <span className="text-brand-gold-light">warna keemasan</span> sebagai ekspresi kelezatan roti fresh oven.
