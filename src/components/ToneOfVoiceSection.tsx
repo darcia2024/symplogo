@@ -14,6 +14,10 @@ interface VoicePillar {
 const ToneOfVoiceSection = () => {
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
+  const isHamasahBakery = brand.slug === "hamasahbakery";
+  const isHamasahLaundry = brand.slug === "hamasahlaundry";
+  const isHamasah = isHamasahBakery || isHamasahLaundry;
+
   const pillars: VoicePillar[] = isHaramain
     ? [
         {
@@ -50,6 +54,84 @@ const ToneOfVoiceSection = () => {
           desc: "Dokumentasi tetap tunduk pada batas adab tempat, privasi jamaah, dan nilai spiritual perjalanan.",
           doText: "Gunakan bahasa yang sopan, menjaga privasi, dan menghormati aturan area ibadah.",
           dontText: "Hindari visual atau caption yang melanggar adab, terlalu sensasional, atau mengganggu jamaah lain.",
+          icon: <Feather className="w-6 h-6 text-brand-gold-light" />,
+        },
+      ]
+    : isHamasahLaundry
+    ? [
+        {
+          id: "01",
+          title: "Ramah & Hangat",
+          subtitle: "FRIENDLY & WARM",
+          desc: "Bahasa verbal dan visual yang ramah, sopan, dan hangat menyapa setiap keluarga.",
+          doText: "Gunakan sapaan hangat, tutur kata sopan, dan narasi kepedulian pada kenyamanan pakaian keluarga.",
+          dontText: "Hindari nada kaku, terlalu formal, atau penyampaian yang terkesan terburu-buru.",
+          icon: <HeartHandshake className="w-6 h-6 text-brand-gold-light" />,
+        },
+        {
+          id: "02",
+          title: "Clean & Higienis",
+          subtitle: "FRESH & HYGIENIC",
+          desc: "Menekankan jaminan kebersihan, kerapian, dan keharuman tahan lama pada setiap helai pakaian.",
+          doText: "Tekankan standar kebersihan higienis, perawatan pakaian harum lembut, dan kerapian lipatan.",
+          dontText: "Hindari penggunaan istilah teknis pencucian berlebih yang membingungkan pelanggan.",
+          icon: <Sparkles className="w-6 h-6 text-brand-gold-light" />,
+        },
+        {
+          id: "03",
+          title: "Responsif & Tepercaya",
+          subtitle: "RELIABLE & RESPONSIVE",
+          desc: "Penyampaian informasi alur cuci, paket laundry, dan kepastian selesai tepat waktu secara jelas.",
+          doText: "Berikan estimasi waktu selesai tepat, informasi tarif transparan, dan jaminan penanganan pakaian.",
+          dontText: "Hindari janji waktu yang mengambang atau transparansi harga yang tidak jelas.",
+          icon: <CheckCircle className="w-6 h-6 text-brand-gold-light" />,
+        },
+        {
+          id: "04",
+          title: "Keceriaan Hamasah",
+          subtitle: "JOYFUL & CARING",
+          desc: "Membawa keceriaan dan rasa tenang bagi pelanggan bahwa pakaian kesayangan dirawat penuh perhatian.",
+          doText: "Sampaikan rasa syukur dan kebahagiaan membantu meringankan aktivitas perawatan pakaian keluarga.",
+          dontText: "Hindari bahasa mengeluh atau mengaitkan perawatan laundry dengan beban kerja.",
+          icon: <Feather className="w-6 h-6 text-brand-gold-light" />,
+        },
+      ]
+    : isHamasahBakery
+    ? [
+        {
+          id: "01",
+          title: "Manis & Ceria",
+          subtitle: "SWEET & JOYFUL",
+          desc: "Bahasa verbal dan visual yang hangat, manis, dan membawa keceriaan bagi setiap penikmat roti.",
+          doText: "Gunakan narasi rasa hangat, kelezatan fresh dari oven, dan senyuman keluarga.",
+          dontText: "Hindari gaya kaku, terlalu akademis, atau bahasa yang dingin.",
+          icon: <Sparkles className="w-6 h-6 text-brand-gold-light" />,
+        },
+        {
+          id: "02",
+          title: "Hangat & Otentik",
+          subtitle: "WARM & AUTHENTIC",
+          desc: "Menekankan komitmen rasa roti hangat buatan rumah (homemade warmth) dengan bahan alami pilihan.",
+          doText: "Sorot proses panggang segar, keahlian baker, dan kehangatan ruang toko.",
+          dontText: "Hindari klaim berlebihan atau penggambaran produk yang tidak sesuai bentuk asli.",
+          icon: <HeartHandshake className="w-6 h-6 text-brand-gold-light" />,
+        },
+        {
+          id: "03",
+          title: "Jelas & Ramah",
+          subtitle: "CLEAR & FRIENDLY",
+          desc: "Penyampaian varian menu roti, promo hangat, dan layanan toko secara informatif dan menyenangkan.",
+          doText: "Gunakan nama varian roti yang menggugah selera dan informasi harga yang transparan.",
+          dontText: "Hindari deskripsi produk yang membingungkan atau alur pesanan yang rumit.",
+          icon: <BookOpenCheck className="w-6 h-6 text-brand-gold-light" />,
+        },
+        {
+          id: "04",
+          title: "Penuh Semangat",
+          subtitle: "PASSIONATE & CARING",
+          desc: "Ekspresi semangat (Hamasah) dalam memanggang roti terbaik untuk menyajikan senyuman harian.",
+          doText: "Gunakan ungkapan kebahagiaan melayani pelanggan dan semangat menghadirkan kualitas.",
+          dontText: "Hindari narasi yang terkesan asal-jual atau mengabaikan kepuasan rasa pelanggan.",
           icon: <Feather className="w-6 h-6 text-brand-gold-light" />,
         },
       ]
@@ -113,7 +195,11 @@ const ToneOfVoiceSection = () => {
         </h2>
 
         <p className="text-muted-foreground font-modernist text-xs md:text-base max-w-2xl mx-auto leading-relaxed px-4">
-          {isHaramain
+          {isHamasahLaundry
+            ? "Gaya penyampaian pesan Hamasah Laundry mencerminkan kesegaran, kebersihan higienis, keramahan, dan pelayanan penuh kehangatan."
+            : isHamasahBakery
+            ? "Gaya penyampaian pesan Hamasah Bakery mencerminkan kehangatan, keceriaan, kelezatan roti fresh, dan keramahan."
+            : isHaramain
             ? "Gaya penyampaian pesan Haramain Capture mencerminkan layanan dokumentasi ibadah yang khidmat, profesional, menjaga adab, dan menghormati momen jamaah."
             : "Gaya penyampaian pesan Markaz Fiqih mencerminkan nilai kedalaman ilmu, ketegasan fokus, dan keadaban akademis dalam setiap publikasi."}
         </p>

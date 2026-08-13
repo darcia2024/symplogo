@@ -7,7 +7,9 @@ const PhilosophyMeaningSection = () => {
   const [isBookmarked, setIsBookmarked] = useState(false);
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
-  const isHamasah = brand.slug === "hamasahbakery";
+  const isHamasahBakery = brand.slug === "hamasahbakery";
+  const isHamasahLaundry = brand.slug === "hamasahlaundry";
+  const isHamasah = isHamasahBakery || isHamasahLaundry;
 
   const pillars = isHaramain
     ? [
@@ -44,7 +46,42 @@ const PhilosophyMeaningSection = () => {
           tag: "Dimensi Warna",
         },
       ]
-    : isHamasah
+    : isHamasahLaundry
+    ? [
+        {
+          id: 0,
+          icon: <Home className="w-5 h-5 text-brand-gold-light" />,
+          title: "Rumah Laundry Hygienic",
+          concept: "Wadah Kebersihan",
+          quote: "Siluet rumah laundry melambangkan ruang perawatan pakaian yang bersih, higienis, dan terpercaya.",
+          tag: "Dimensi Wadah",
+        },
+        {
+          id: 1,
+          icon: <Utensils className="w-5 h-5 text-brand-gold-light" />,
+          title: "Kesegaran Busa & Harum",
+          concept: "Pakaian Soft & Fresh",
+          quote: "Aksen busa & keharuman khas merepresentasikan kesegaran pakaian yang lembut, rapi, dan harum tahan lama.",
+          tag: "Dimensi Harum",
+        },
+        {
+          id: 2,
+          icon: <Sparkles className="w-5 h-5 text-brand-gold-light" />,
+          title: "Perawatan Pakaian Detail",
+          concept: "Care & Hygiene",
+          quote: "Setiap potong pakaian diolah penuh perhatian pada kebersihan dan kerapian agar nyaman dikenakan.",
+          tag: "Dimensi Rawat",
+        },
+        {
+          id: 3,
+          icon: <Compass className="w-5 h-5 text-brand-gold-light" />,
+          title: "Aksen Keemasan & Cokelat",
+          concept: "Warm Gold & Chocolate",
+          quote: "Sentuhan warna keemasan dan cokelat hangat menegaskan identitas keluarga Hamasah yang ramah & tepercaya.",
+          tag: "Dimensi Warna",
+        },
+      ]
+    : isHamasahBakery
     ? [
         {
           id: 0,
@@ -145,16 +182,18 @@ const PhilosophyMeaningSection = () => {
         
         {/* Subtle Background Ghost Text */}
         <h1 className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center font-modernist font-bold text-[12vw] md:text-[9vw] leading-none tracking-tight select-none pointer-events-none text-white/[0.03] uppercase">
-            {isHamasah ? "HAMASAH" : isHaramain ? "CAPTURE" : "TAKHASSUS"}
+            {isHamasahLaundry ? "LAUNDRY" : isHamasahBakery ? "HAMASAH" : isHaramain ? "CAPTURE" : "TAKHASSUS"}
         </h1>
 
         {/* Title Stack */}
         <div className="text-center relative z-10 max-w-3xl px-4 mb-8 md:mb-10">
             <h2 className="font-modernist font-bold text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-tight tracking-tight drop-shadow-xl">
-                {isHamasah ? "Hamasah" : isHaramain ? "Haramain" : "Markaz"} <span className="text-brand-cream">{isHamasah ? "Bakery" : isHaramain ? "Capture" : "Fiqih"}</span>
+                {isHamasah ? "Hamasah" : isHaramain ? "Haramain" : "Markaz"} <span className="text-brand-cream">{isHamasahLaundry ? "Laundry" : isHamasahBakery ? "Bakery" : isHaramain ? "Capture" : "Fiqih"}</span>
             </h2>
             <p className="text-white/80 font-modernist text-xs md:text-base mt-3 max-w-xl mx-auto leading-relaxed">
-                {isHamasah
+                {isHamasahLaundry
+                  ? "Kesegaran & kebersihan pakaian penuh semangat dengan keharuman lembut yang tahan lama untuk keluarga."
+                  : isHamasahBakery
                   ? "Kehangatan roti fresh dari oven yang dipanggang penuh semangat untuk menghadirkan senyuman bagi setiap pelanggan."
                   : isHaramain
                   ? "Menangkap perjalanan umrah, ziarah, dan ibadah lain melalui bahasa visual yang tenang, fokus, dan penuh penghormatan."

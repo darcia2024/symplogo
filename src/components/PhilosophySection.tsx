@@ -4,7 +4,9 @@ import { useBrand } from "@/lib/brand";
 const PhilosophySection = () => {
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
-  const isHamasah = brand.slug === "hamasahbakery";
+  const isHamasahBakery = brand.slug === "hamasahbakery";
+  const isHamasahLaundry = brand.slug === "hamasahlaundry";
+  const isHamasah = isHamasahBakery || isHamasahLaundry;
 
   const pillars = isHaramain
     ? [
@@ -24,7 +26,25 @@ const PhilosophySection = () => {
           icon: <Camera className="w-5 h-5 md:w-6 md:h-6" />,
         },
       ]
-    : isHamasah
+    : isHamasahLaundry
+    ? [
+        {
+          title: "Rumah Laundry & Hygiene",
+          desc: "Siluet rumah laundry melambangkan wadah perawatan pakaian yang higienis, terpercaya, dan ramah bagi keluarga.",
+          icon: <Home className="w-5 h-5 md:w-6 md:h-6" />,
+        },
+        {
+          title: "Kesegaran Busa & Harum",
+          desc: "Busa dan keharuman khas merepresentasikan kesegaran pakaian yang dicuci bersih, rapi, dan wangi tahan lama.",
+          icon: <Utensils className="w-5 h-5 md:w-6 md:h-6" />,
+        },
+        {
+          title: "Aksen Keemasan & Cokelat",
+          desc: "Paduan warna cokelat hangat dan keemasan menegaskan perhatian pada detail perawatan pakaian dengan keahlian terbaik.",
+          icon: <Sparkles className="w-5 h-5 md:w-6 md:h-6" />,
+        },
+      ]
+    : isHamasahBakery
     ? [
         {
           title: "Rumah Bakery & Kehangatan",

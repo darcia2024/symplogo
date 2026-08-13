@@ -4,13 +4,15 @@ import { useBrand } from "@/lib/brand";
 const TypographySection = () => {
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
-  const isHamasah = brand.slug === "hamasahbakery";
+  const isHamasahBakery = brand.slug === "hamasahbakery";
+  const isHamasahLaundry = brand.slug === "hamasahlaundry";
+  const isHamasah = isHamasahBakery || isHamasahLaundry;
 
   const fontClass = isHaramain ? "font-trajan" : "font-modernist";
-  const typefaceName = isHamasah ? "Hamasah Handcrafted Display" : isHaramain ? "Trajan Pro 3" : "Sk-Modernist";
+  const typefaceName = isHamasahLaundry ? "Hamasah Laundry Display" : isHamasahBakery ? "Hamasah Handcrafted Display" : isHaramain ? "Trajan Pro 3" : "Sk-Modernist";
   const firstWord = isHamasah ? "Hamasah" : isHaramain ? "Haramain" : "Markaz";
-  const secondWord = isHamasah ? "Bakery" : isHaramain ? "Capture" : "Fiqih";
-  const typefaceTraits = isHamasah ? "Ramah • Ceria • Organik & Manis" : isHaramain ? "Klasik • Elegan • Monumental" : "Tegas • Modern • Geometris";
+  const secondWord = isHamasahLaundry ? "Laundry" : isHamasahBakery ? "Bakery" : isHaramain ? "Capture" : "Fiqih";
+  const typefaceTraits = isHamasahLaundry ? "Ramah • Higienis • Organik & Segar" : isHamasahBakery ? "Ramah • Ceria • Organik & Manis" : isHaramain ? "Klasik • Elegan • Monumental" : "Tegas • Modern • Geometris";
 
   return (
     <section className={`relative min-h-[100dvh] w-full bg-brand-sand overflow-hidden flex flex-col justify-between py-8 px-6 md:py-12 md:px-12 lg:px-20 text-brand-burgundy ${fontClass}`}>

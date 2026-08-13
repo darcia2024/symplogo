@@ -41,6 +41,41 @@ const ColorSystemSection = () => {
           swatchClass: "bg-[#EAF5D8] border border-black/10",
         },
       ]
+    : brand.slug === "hamasahlaundry"
+    ? [
+        {
+          number: "01",
+          type: "PRIMARY COLOR",
+          hex: "#FFD21C",
+          name: "Laundry Sun Yellow",
+          desc: "Warna keemasan hangat khas Hamasah yang memancarkan energi keceriaan dan semangat.",
+          swatchClass: "bg-[#FFD21C]",
+        },
+        {
+          number: "02",
+          type: "DARK CONTRAST",
+          hex: "#5B3715",
+          name: "Dark Roast Chocolate",
+          desc: "Kontras cokelat hangat khas keluarga Hamasah untuk daya keterbacaan yang kokoh.",
+          swatchClass: "bg-[#5B3715]",
+        },
+        {
+          number: "03",
+          type: "FRESH ACCENT",
+          hex: "#2B7FFF",
+          name: "Fresh Laundry Blue",
+          desc: "Aksen biru segar melambangkan kesegaran air, kebersihan busa, dan higienitas laundry.",
+          swatchClass: "bg-[#2B7FFF]",
+        },
+        {
+          number: "04",
+          type: "PURE NEUTRAL",
+          hex: "#FFFDF9",
+          name: "Soft Cream Cotton",
+          desc: "Warna putih krim bersih melambangkan kelembutan kain katun dan perawatan higienis.",
+          swatchClass: "bg-[#FFFDF9] border border-black/10",
+        },
+      ]
     : brand.slug === "hamasahbakery"
     ? [
         {

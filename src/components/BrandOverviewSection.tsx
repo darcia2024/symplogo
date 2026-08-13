@@ -1,10 +1,12 @@
-import { Aperture, Camera, Compass, Home, MapPin, Sparkles, Utensils } from "lucide-react";
+import { Aperture, Camera, Compass, Home, MapPin, Shirt, Sparkles, Utensils } from "lucide-react";
 import { useBrand } from "@/lib/brand";
 
 const BrandOverviewSection = () => {
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
-  const isHamasah = brand.slug === "hamasahbakery";
+  const isHamasahBakery = brand.slug === "hamasahbakery";
+  const isHamasahLaundry = brand.slug === "hamasahlaundry";
+  const isHamasah = isHamasahBakery || isHamasahLaundry;
 
   const pillars = isHaramain
     ? [
@@ -30,7 +32,31 @@ const BrandOverviewSection = () => {
           colSpan: "col-span-2 lg:col-span-1",
         },
       ]
-    : isHamasah
+    : isHamasahLaundry
+    ? [
+        {
+          title: "Layanan Laundry Clean",
+          sub: "Wadah Kebersihan",
+          description: "Siluet rumah laundry melambangkan wadah perawatan pakaian yang higienis, terpercaya, dan ramah bagi setiap keluarga.",
+          icon: <Home className="w-4 h-4 sm:w-6 sm:h-6 text-brand-gold" />,
+          colSpan: "col-span-1",
+        },
+        {
+          title: "Kesegaran Busa & Harum",
+          sub: "Pakaian Soft & Fresh",
+          description: "Busa dan keharuman khas merepresentasikan kesegaran pakaian yang dicuci bersih, rapi, dan wangi tahan lama.",
+          icon: <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-brand-gold" />,
+          colSpan: "col-span-1",
+        },
+        {
+          title: "Sentuhan Kehangatan",
+          sub: "Perawatan Higienis",
+          description: "Aksen warna cokelat hangat dan keemasan menegaskan perhatian pada detail perawatan pakaian dengan keahlian terbaik.",
+          icon: <Shirt className="w-4 h-4 sm:w-6 sm:h-6 text-brand-gold" />,
+          colSpan: "col-span-2 lg:col-span-1",
+        },
+      ]
+    : isHamasahBakery
     ? [
         {
           title: "Rumah Toko Bakery",

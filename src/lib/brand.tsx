@@ -23,7 +23,12 @@ import logoHamasahCoralBg from "@/assets/hamasah-logo-coral-bg.png";
 import logoHamasahIcon from "@/assets/hamasah-logo-icon.png";
 import logoHamasahBoard from "@/assets/hamasah-board.png";
 
-export type BrandSlug = "markazfiqih" | "haramaincapture" | "hamasahbakery";
+import logoHamasahLaundryFix1 from "@/assets/hamasah-laundry-fix1.png";
+import logoHamasahLaundryFix2 from "@/assets/hamasah-laundry-fix2.png";
+import logoHamasahLaundryCoklat from "@/assets/hamasah-laundry-coklat.png";
+import logoHamasahLaundryPutih from "@/assets/hamasah-laundry-putih.png";
+
+export type BrandSlug = "markazfiqih" | "haramaincapture" | "hamasahbakery" | "hamasahlaundry";
 
 export type BrandAssets = {
   primary: string;
@@ -87,6 +92,19 @@ const hamasahAssets: BrandAssets = {
   coralBg: logoHamasahCoralBg,
 };
 
+const hamasahLaundryAssets: BrandAssets = {
+  primary: logoHamasahLaundryFix2,
+  dark: logoHamasahLaundryFix2,
+  horizontalWhite: logoHamasahLaundryPutih,
+  horizontalColor: logoHamasahLaundryFix2,
+  vertical: logoHamasahLaundryFix2,
+  iconWhite: logoHamasahLaundryPutih,
+  iconMono: logoHamasahLaundryCoklat,
+  yellowBg: logoHamasahLaundryFix1,
+  creamBg: logoHamasahLaundryFix2,
+  coralBg: logoHamasahLaundryCoklat,
+};
+
 export const brands: Record<BrandSlug, BrandConfig> = {
   markazfiqih: {
     slug: "markazfiqih",
@@ -141,6 +159,24 @@ export const brands: Record<BrandSlug, BrandConfig> = {
       </>
     ),
     assets: hamasahAssets,
+  },
+  hamasahlaundry: {
+    slug: "hamasahlaundry",
+    name: "Hamasah Laundry",
+    shortName: "Hamasah",
+    handle: "@hamasahlaundry",
+    themeClass: "theme-laundry",
+    identityLabel: "Hamasah Laundry Identity",
+    tagline: "Kesegaran & Kebersihan Pakaian Penuh Semangat dengan Sentuhan Kehangatan",
+    description:
+      "Hamasah Laundry menghadirkan layanan perawatan pakaian premium, higienis, dan wangi tahan lama, diolah dengan ketelitian dan semangat kehangatan untuk kenyamanan keluarga.",
+    assetDownloadUrl: "https://drive.google.com/drive/folders/1ZI85y_-FndZSQNFsXlX-g63hE5uySDr_?usp=sharing",
+    manifesto: (
+      <>
+        Secara keseluruhan, identitas visual Hamasah Laundry membawa <span className="text-brand-gold-light font-extrabold underline decoration-brand-gold/40 underline-offset-4 sm:underline-offset-8">tiga pesan utama</span>: <span className="text-brand-gold-light">rumah laundry</span> sebagai ruang kebersihan & perawatan terpercaya, <span className="text-brand-gold-light">kesegaran busa & harum</span> sebagai simbol higienitas, dan <span className="text-brand-gold-light">warna cokelat hangat & keemasan</span> sebagai identitas keluarga Hamasah.
+      </>
+    ),
+    assets: hamasahLaundryAssets,
   },
 };
 

@@ -6,15 +6,21 @@ const BrandIdentitySection = () => {
   const [activeTab, setActiveTab] = useState<"dark" | "light">("light");
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
-  const isHamasah = brand.slug === "hamasahbakery";
+  const isHamasahBakery = brand.slug === "hamasahbakery";
+  const isHamasahLaundry = brand.slug === "hamasahlaundry";
+  const isHamasah = isHamasahBakery || isHamasahLaundry;
 
-  const essenceTitle = isHamasah ? "Rumah & Roti Senyum" : "Inti Simbol";
-  const essenceDesc = isHamasah
+  const essenceTitle = isHamasahLaundry ? "Rumah Laundry & Harum" : isHamasahBakery ? "Rumah & Roti Senyum" : "Inti Simbol";
+  const essenceDesc = isHamasahLaundry
+    ? "Penyatuan kehangatan rumah laundry dan kesegaran busa & keharuman pakaian dengan warna keemasan yang bersih & ramah."
+    : isHamasahBakery
     ? "Penyatuan kehangatan rumah bakery dan karakter roti tawar tersenyum (Toast Smile) dengan warna keemasan yang manis & lezat."
     : "Penyatuan simbol utama & logotype dengan aksen warna primer yang kuat.";
 
-  const visionTitle = isHamasah ? "Kehangatan & Ceria" : isHaramain ? "Visi Dokumentasi" : "Visi Keilmuan";
-  const visionDesc = isHamasah
+  const visionTitle = isHamasahLaundry ? "Kebersihan & Kehangatan" : isHamasahBakery ? "Kehangatan & Ceria" : isHaramain ? "Visi Dokumentasi" : "Visi Keilmuan";
+  const visionDesc = isHamasahLaundry
+    ? "Identitas visual yang higienis, ramah, dan tepercaya, menghadirkan kesegaran pakaian bersih wangi bagi setiap keluarga."
+    : isHamasahBakery
     ? "Identitas visual yang ramah, manis, dan ceria, menghadirkan kehangatan roti fresh dari oven bagi setiap pelanggan."
     : "Identitas visual yang kokoh, profesional, mudah dikenali, dan relevan di berbagai media.";
 

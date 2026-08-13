@@ -3,7 +3,9 @@ import { useBrand } from "@/lib/brand";
 const LogoVariationsSection = () => {
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
-  const isHamasah = brand.slug === "hamasahbakery";
+  const isHamasahBakery = brand.slug === "hamasahbakery";
+  const isHamasahLaundry = brand.slug === "hamasahlaundry";
+  const isHamasah = isHamasahBakery;
 
   return (
     <section className="relative min-h-screen w-full bg-brand-burgundy flex flex-col justify-between py-12 px-4 sm:px-8 md:px-12 lg:px-20 overflow-hidden font-modernist">

@@ -34,7 +34,9 @@ interface GalleryItem {
 const BrandGallerySection = () => {
   const brand = useBrand();
   const isHaramain = brand.slug === "haramaincapture";
-  const isHamasah = brand.slug === "hamasahbakery";
+  const isHamasahBakery = brand.slug === "hamasahbakery";
+  const isHamasahLaundry = brand.slug === "hamasahlaundry";
+  const isHamasah = isHamasahBakery;
 
   const [activeModalIndex, setActiveModalIndex] = useState<number | null>(null);
   const [isLiked, setIsLiked] = useState(false);
@@ -203,8 +205,62 @@ const BrandGallerySection = () => {
     },
   ];
 
-  const featuredItem = isHamasah ? hamasahBoxItem : isHaramain ? haramainKaosItem : kaosItem;
-  const galleryItems = isHamasah ? hamasahOtherItems : isHaramain ? haramainOtherItems : otherItems;
+  const hamasahLaundryBoxItem: GalleryItem = {
+    id: "01",
+    image: hamasahMockupAppron,
+    title: "Seragam Celemek & Apron Laundry Crew",
+    sub: "OFFICIAL LAUNDRY UNIFORM",
+    desc: "Penerapan logo Hamasah Laundry pada apron seragam petugas pencucian berbahan kanvas premium dengan cetakan warna keemasan & cokelat hangat.",
+    specs: "Heavy Cotton Apron • Water Repellent • Embroidery & Gold Print",
+    hashtags: "#HamasahLaundry #LaundryUniform #ApronCrew #HygieneClean",
+    likes: 1920,
+  };
+
+  const hamasahLaundryOtherItems: GalleryItem[] = [
+    {
+      id: "02",
+      image: hamasahMockupShop,
+      title: "Papan Nama Storefront & Outlet Laundry",
+      sub: "OUTLET SIGN & NEON LIGHT",
+      desc: "Desain plang outlet dan neon box Hamasah Laundry yang bersih, terang, dan mudah dikenali pelanggan dari jalan utama.",
+      specs: "Warm Acrylic Box • Ultra Bright LED • Outdoor Signage",
+      hashtags: "#HamasahLaundry #OutletLaundry #Storefront #CleanService",
+      likes: 1850,
+    },
+    {
+      id: "03",
+      image: hamasahMockupBox,
+      title: "Tas Laundry Bag & Packaging Clean Apparel",
+      sub: "PACKAGING & LAUNDRY BAG",
+      desc: "Desain kantong laundry ramah lingkungan dan dus kemasan pakaian bersih lipat dengan cetakan logo khas Hamasah Laundry.",
+      specs: "Spunbond Laundry Bag 80gsm • Eco Flexo Print • Clean Pack",
+      hashtags: "#HamasahLaundry #LaundryBag #PackagingPakaian #CleanFresh",
+      likes: 1740,
+    },
+    {
+      id: "04",
+      image: hamasahMockupCup,
+      title: "Kemasan Parfum & Softener Laundry",
+      sub: "FRAGRANCE & DETERGENT BOTTLE",
+      desc: "Kemasan cairan pembersih, softener, dan parfum pakaian wangi tahan lama berbahan botol ramah lingkungan khas Hamasah Laundry.",
+      specs: "Eco Bottle 250ml • Waterproof Label • Fresh Aroma",
+      hashtags: "#HamasahLaundry #SoftenerPakaian #ParfumLaundry #FragranceFresh",
+      likes: 1680,
+    },
+    {
+      id: "05",
+      image: hamasahMockupTopi,
+      title: "Topi Seragam & Apparel Staff Laundry",
+      sub: "CREW CAP & APPAREL",
+      desc: "Topi seragam crew laundry dengan Emblem logo Hamasah Laundry untuk menjaga kebersihan & penampilan profesional saat bertugas.",
+      specs: "Cotton Twill Cap • Embroidery Logo Badge • Adjustable Strap",
+      hashtags: "#HamasahLaundry #TopiStaff #CrewApparel #CleanService",
+      likes: 1610,
+    },
+  ];
+
+  const featuredItem = isHamasahLaundry ? hamasahLaundryBoxItem : isHamasahBakery ? hamasahBoxItem : isHaramain ? haramainKaosItem : kaosItem;
+  const galleryItems = isHamasahLaundry ? hamasahLaundryOtherItems : isHamasahBakery ? hamasahOtherItems : isHaramain ? haramainOtherItems : otherItems;
   const allGalleryItems: GalleryItem[] = [featuredItem, ...galleryItems];
 
   // Preload all images for zero-delay instant modal loading
@@ -275,7 +331,9 @@ const BrandGallerySection = () => {
         </h2>
         
         <p className="text-white/80 font-modernist text-xs md:text-base max-w-2xl mx-auto leading-relaxed px-4">
-            {isHamasah
+            {isHamasahLaundry
+              ? "Eksplorasi penerapan identitas visual Hamasah Laundry pada media celemek laundry, packaging tas pakaian, parfum softener, topi crew, dan papan nama outlet."
+              : isHamasahBakery
               ? "Eksplorasi penerapan identitas visual Hamasah Bakery pada dus kemasan roti, celemek baker, paper cup minuman, topi seragam, dan papan nama toko."
               : isHaramain
               ? "Eksplorasi penerapan identitas visual Haramain Capture pada media dokumentasi perjalanan umrah, ziarah, publikasi digital, dan materi layanan jamaah."
@@ -305,7 +363,7 @@ const BrandGallerySection = () => {
           <div className="absolute top-4 left-4 bg-black/60 border border-white/20 backdrop-blur-md px-3 py-1 rounded-full z-10 flex items-center gap-1.5">
             <Sparkles className="w-3 h-3 text-brand-gold-light" />
             <span className="text-[10px] font-modernist font-bold text-brand-gold-light tracking-widest">
-              {isHamasah ? "HERO PACKAGING" : "HERO APPAREL"}
+              {isHamasahLaundry ? "HERO UNIFORM" : isHamasahBakery ? "HERO PACKAGING" : "HERO APPAREL"}
             </span>
           </div>
 
@@ -504,10 +562,10 @@ const BrandGallerySection = () => {
                 <div className="flex gap-2 items-center flex-wrap">
                   <span className="text-[10px] font-bold text-white/50 uppercase tracking-widest mr-1">WARNA:</span>
                   <span className="px-2.5 py-1 rounded-lg bg-black/40 border border-white/15 text-[11px] font-bold flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-brand-red"></span> {isHamasah ? "Sun Yellow #FFD21C" : isHaramain ? "Hijau #9AD12A" : "Merah #AB2130"}
+                    <span className="w-2.5 h-2.5 rounded-full bg-brand-red"></span> {isHamasahLaundry ? "Laundry Sun Yellow #FFD21C" : isHamasahBakery ? "Sun Yellow #FFD21C" : isHaramain ? "Hijau #9AD12A" : "Merah #AB2130"}
                   </span>
                   <span className="px-2.5 py-1 rounded-lg bg-black/40 border border-white/15 text-[11px] font-bold flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#5B3715]"></span> {isHamasah ? "Chocolate #5B3715" : "Emas #CC9933"}
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#5B3715]"></span> {isHamasahLaundry ? "Chocolate #5B3715" : isHamasahBakery ? "Chocolate #5B3715" : "Emas #CC9933"}
                   </span>
                 </div>
 
