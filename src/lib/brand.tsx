@@ -170,7 +170,7 @@ export const brands: Record<BrandSlug, BrandConfig> = {
     tagline: "Kesegaran & Kebersihan Pakaian Penuh Semangat dengan Sentuhan Kehangatan",
     description:
       "Hamasah Laundry menghadirkan layanan perawatan pakaian premium, higienis, dan wangi tahan lama, diolah dengan ketelitian dan semangat kehangatan untuk kenyamanan keluarga.",
-    assetDownloadUrl: "https://drive.google.com/drive/folders/1ZI85y_-FndZSQNFsXlX-g63hE5uySDr_?usp=sharing",
+    assetDownloadUrl: "https://drive.google.com/drive/folders/1nyB3x3vbFhhLiCMkhlhmZpJx1qUjO8o_?usp=sharing",
     manifesto: (
       <>
         Secara keseluruhan, identitas visual Hamasah Laundry membawa <span className="text-brand-gold-light font-extrabold underline decoration-brand-gold/40 underline-offset-4 sm:underline-offset-8">tiga pesan utama</span>: <span className="text-brand-gold-light">rumah laundry</span> sebagai ruang kebersihan & perawatan terpercaya, <span className="text-brand-gold-light">kesegaran busa & harum</span> sebagai simbol higienitas, dan <span className="text-brand-gold-light">warna cokelat hangat & keemasan</span> sebagai identitas keluarga Hamasah.
