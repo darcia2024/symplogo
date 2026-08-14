@@ -66,8 +66,8 @@
     /* Typography */
     /* !!! 2. UPDATE BAGIAN INI !!! */
     /* Ubah dari Playfair Display jadi Symptext */
-    --font-display: 'Symptext', 'Playfair Display', serif; 
-    --font-body: 'Manrope', 'Inter', sans-serif;
+    --font-display: 'Manrope', sans-serif; 
+    --font-body: 'Manrope', sans-serif;
 
     /* Animations */
     --transition-smooth: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
@@ -173,28 +173,28 @@
   }
 
   .theme-laundry {
-    --foreground: 30 60% 18%;
-    --card-foreground: 30 60% 18%;
-    --popover-foreground: 30 60% 18%;
-    --primary: 30 60% 22%;
-    --secondary: 47 100% 55%;
+    --foreground: 220 30% 12%;
+    --card-foreground: 220 30% 12%;
+    --popover-foreground: 220 30% 12%;
+    --primary: 199 89% 48%;             /* #0EA5E9 Fresh Cyan */
+    --secondary: 47 100% 55%;           /* #FFD21C Sun Gold */
     --secondary-foreground: 30 60% 18%;
-    --muted: 45 80% 95%;
-    --muted-foreground: 30 40% 35%;
-    --accent: 47 100% 55%;
-    --accent-foreground: 30 60% 18%;
-    --border: 45 40% 80%;
-    --input: 45 40% 80%;
-    --ring: 47 100% 55%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 220 15% 40%;
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
+    --border: 215 25% 88%;
+    --input: 215 25% 88%;
+    --ring: 199 89% 48%;
 
-    --brand-burgundy: 30 60% 22%;       /* #5B3715 Chocolate Brown */
-    --brand-burgundy-light: 30 55% 30%; /* #7A4B1D Mid Roast */
-    --brand-red: 47 100% 55%;            /* #FFD21C Laundry Yellow */
-    --brand-gold: 47 100% 50%;           /* #FFBF00 Golden Amber */
+    --brand-burgundy: 25 55% 15%;       /* #3A1F0D Deep Clean Espresso */
+    --brand-burgundy-light: 199 89% 48%; /* #0EA5E9 Fresh Cyan Accent */
+    --brand-red: 47 100% 55%;            /* #FFD21C Sun Yellow */
+    --brand-gold: 47 100% 55%;           /* #FFD21C Sun Gold */
     --brand-gold-light: 47 100% 65%;     /* #FFE066 Light Gold */
-    --brand-cream: 45 60% 97%;           /* #FFFDF9 Cream White */
-    --brand-sand: 45 40% 92%;            /* #F7F2E8 Warm Cream */
-    --brand-black: 30 60% 12%;           /* #2E1A08 Deep Dark Chocolate */
+    --brand-cream: 210 40% 98%;          /* #F8FAFC Crisp Cotton */
+    --brand-sand: 204 100% 97%;          /* #F0F9FF Fresh Foam White */
+    --brand-black: 25 60% 10%;           /* #261408 Deep Roast Dark */
   }
 }
 
@@ -212,7 +212,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+    font-family: 'Manrope', sans-serif;
   }
 }
 

@@ -83,10 +83,10 @@ const BrandPasswordModal: React.FC<BrandPasswordModalProps> = ({ brand, onUnlock
               className="max-h-full max-w-full object-contain drop-shadow-md"
             />
           </div>
-          <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight font-sans">
             {brand.name}
           </h2>
-          <p className="text-white/60 text-xs mt-1 max-w-xs leading-relaxed">
+          <p className="text-white/70 text-xs mt-1.5 max-w-xs leading-relaxed font-sans">
             Halaman Brand Identity Guidelines ini dilindungi. Masukkan password untuk melanjutkan.
           </p>
         </div>
