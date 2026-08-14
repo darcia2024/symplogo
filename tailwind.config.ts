@@ -14,10 +14,11 @@ export default {
     },
     extend: {
       fontFamily: {
+        sans: ['Manrope', 'sans-serif'],
         display: ['Playfair Display', 'serif'],
-        body: ['Inter', 'sans-serif'],
+        body: ['Manrope', 'Inter', 'sans-serif'],
         symtext: ['Symtext', 'sans-serif'], 
-        modernist: ['Sk-Modernist', 'sans-serif'],
+        modernist: ['Manrope', 'Sk-Modernist', 'sans-serif'],
         trajan: ['Trajan Pro 3', 'Trajan Pro', 'Cinzel', 'Georgia', 'serif'],
       },
       colors: {
