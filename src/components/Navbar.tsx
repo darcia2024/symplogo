@@ -1,10 +1,11 @@
 import { useState, useEffect, useRef } from "react";
-import { Download, ExternalLink, ChevronDown, Layers, Check, Sparkles } from "lucide-react";
-import { useBrand } from "@/lib/brand";
-import { useNavigate, useLocation } from "react-router-dom";
+import { Download, ExternalLink, ChevronDown, Layers, Check, Lock, Unlock } from "lucide-react";
+import { useBrand, BrandSlug } from "@/lib/brand";
+import { isBrandUnlocked } from "@/lib/auth";
+import { useNavigate } from "react-router-dom";
 
 interface BrandNavItem {
-  slug: string;
+  slug: BrandSlug;
   name: string;
   tag: string;
   icon: string;
@@ -42,12 +43,15 @@ const brandNavList: BrandNavItem[] = [
   },
 ];
 
-const Navbar = () => {
+interface NavbarProps {
+  onLockBrand?: () => void;
+}
+
+const Navbar = ({ onLockBrand }: NavbarProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const brand = useBrand();
   const navigate = useNavigate();
-  const location = useLocation();
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -130,13 +134,15 @@ const Navbar = () => {
                   Pilih Brand Showcase
                 </span>
                 <span className="text-[9px] px-2 py-0.5 rounded-full bg-brand-gold/20 text-brand-gold-light font-bold">
-                  4 Brands
+                  4 Brands Protected
                 </span>
               </div>
 
               <div className="space-y-1">
                 {brandNavList.map((item) => {
                   const isActive = brand.slug === item.slug;
+                  const isUnlocked = isBrandUnlocked(item.slug);
+
                   return (
                     <button
                       key={item.slug}
@@ -147,20 +153,25 @@ const Navbar = () => {
                           : "hover:bg-white/10 text-white/80 hover:text-white"
                       }`}
                     >
-                      <div className="flex items-center gap-2.5">
+                      <div className="flex items-center gap-2.5 min-w-0">
                         <span className="text-lg flex-shrink-0">{item.icon}</span>
-                        <div>
-                          <span className={`text-xs font-bold block leading-tight ${isActive ? "text-brand-gold-light" : "text-white"}`}>
-                            {item.name}
-                          </span>
-                          <span className="text-[10px] text-white/50 block">
+                        <div className="min-w-0">
+                          <div className="flex items-center gap-1.5">
+                            <span className={`text-xs font-bold block leading-tight truncate ${isActive ? "text-brand-gold-light" : "text-white"}`}>
+                              {item.name}
+                            </span>
+                            {!isUnlocked && (
+                              <Lock className="w-3 h-3 text-amber-400/80 flex-shrink-0" />
+                            )}
+                          </div>
+                          <span className="text-[10px] text-white/50 block truncate">
                             {item.tag}
                           </span>
                         </div>
                       </div>
 
                       {isActive && (
-                        <div className="w-5 h-5 rounded-full bg-brand-gold text-brand-burgundy flex items-center justify-center flex-shrink-0 shadow">
+                        <div className="w-5 h-5 rounded-full bg-brand-gold text-brand-burgundy flex items-center justify-center flex-shrink-0 shadow ml-2">
                           <Check className="w-3 h-3 stroke-[3]" />
                         </div>
                       )}
@@ -168,6 +179,22 @@ const Navbar = () => {
                   );
                 })}
               </div>
+
+              {/* Lock current brand action */}
+              {onLockBrand && (
+                <div className="mt-2 pt-2 border-t border-white/10">
+                  <button
+                    onClick={() => {
+                      setIsMenuOpen(false);
+                      onLockBrand();
+                    }}
+                    className="w-full py-1.5 px-3 rounded-xl bg-white/5 hover:bg-white/10 text-white/70 hover:text-white text-[11px] font-bold flex items-center justify-center gap-1.5 transition-colors"
+                  >
+                    <Lock className="w-3 h-3 text-amber-400" />
+                    <span>Kunci Akses Halaman Ini</span>
+                  </button>
+                </div>
+              )}
             </div>
           )}
         </div>

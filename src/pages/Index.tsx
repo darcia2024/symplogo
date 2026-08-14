@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import BrandIdentitySection from "@/components/BrandIdentitySection";
@@ -11,17 +12,41 @@ import TypographySection from "@/components/TypographySection";
 import IncorrectUsageSection from "@/components/IncorrectUsageSection";
 import LogoPhilosophyDetailSection from "@/components/LogoPhilosophyDetailSection";
 import FooterSection from "@/components/FooterSection";
+import BrandPasswordModal from "@/components/BrandPasswordModal";
 import { BrandProvider, type BrandConfig } from "@/lib/brand";
+import { isBrandUnlocked, lockBrand } from "@/lib/auth";
 
 type IndexProps = {
   brand: BrandConfig;
 };
 
 const Index = ({ brand }: IndexProps) => {
+  const [unlocked, setUnlocked] = useState<boolean>(() => isBrandUnlocked(brand.slug));
+
+  useEffect(() => {
+    setUnlocked(isBrandUnlocked(brand.slug));
+  }, [brand.slug]);
+
+  const handleLock = () => {
+    lockBrand(brand.slug);
+    setUnlocked(false);
+  };
+
+  if (!unlocked) {
+    return (
+      <BrandProvider brand={brand}>
+        <BrandPasswordModal 
+          brand={brand} 
+          onUnlocked={() => setUnlocked(true)} 
+        />
+      </BrandProvider>
+    );
+  }
+
   return (
     <BrandProvider brand={brand}>
       <main className={`overflow-x-hidden relative ${brand.themeClass}`}>
-        <Navbar />
+        <Navbar onLockBrand={handleLock} />
         <HeroSection />
         <BrandIdentitySection />
         <LogoQuoteSection />
