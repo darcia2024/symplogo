@@ -1,14 +1,14 @@
 import { BrandSlug } from "./brand";
 
-// Password configured for each brand + Master Admin Bypass
+// Password configured for each brand: 0001
 export const BRAND_PASSWORDS: Record<BrandSlug, string[]> = {
-  hamasahlaundry: ["laundry2026", "hamasahlaundry", "laundry"],
-  hamasahbakery: ["bakery2026", "hamasahbakery", "bakery"],
-  haramaincapture: ["haramain2026", "haramaincapture", "haramain"],
-  markazfiqih: ["fiqih2026", "markazfiqih", "fiqih"],
+  hamasahlaundry: ["0001", "laundry2026", "hamasahlaundry"],
+  hamasahbakery: ["0001", "bakery2026", "hamasahbakery"],
+  haramaincapture: ["0001", "haramain2026", "haramaincapture"],
+  markazfiqih: ["0001", "fiqih2026", "markazfiqih"],
 };
 
-export const MASTER_PASSWORDS = ["symp2026", "sympstudio", "admin2026"];
+export const MASTER_PASSWORDS = ["0001", "symp2026", "sympstudio", "admin2026"];
 
 export const isBrandUnlocked = (slug: BrandSlug): boolean => {
   if (typeof window === "undefined") return false;
